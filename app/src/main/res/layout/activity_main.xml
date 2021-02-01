@@ -146,7 +146,7 @@
                                 android:layout_weight="1"></View>
 
                             <ImageButton
-                                android:id="@+id/listPlus"
+                                android:id="@+id/listEdit"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center"

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TodoList">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="7dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brown_num1"
+            android:ems="13"
+            android:hint="일정 추가" />
+
+        <ImageButton
+            android:id="@+id/listPlus"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="3dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="@color/white"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:tint="@color/brown_num1"
+            android:src="@drawable/ic_noun_plus_1727947" />
+        <ImageButton
+            android:id="@+id/listDelete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="3dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="@color/white"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:tint="@color/brown_num1"
+            android:src="@drawable/ic_noun_minus_1727966" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ListView
+            android:id="@+id/todoListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

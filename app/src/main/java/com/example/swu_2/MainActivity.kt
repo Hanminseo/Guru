@@ -1,5 +1,6 @@
 package com.example.swu_2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var userPage : ImageButton
     lateinit var mainHome : ImageButton
     lateinit var myCalendar : CalendarView
+    lateinit var listEdit : ImageButton
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         userPage = findViewById(R.id.userPage)
         mainHome = findViewById(R.id.mainHome)
         myCalendar = findViewById(R.id.myCalendar)
+        listEdit = findViewById(R.id.listEdit)
 
         val bottomNavigationView = findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
 
@@ -40,6 +43,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         circleProgressBar=findViewById(R.id.cpb_circlebar);
         circleProgressBar.setProgress(70);  // 해당 퍼센트를 적용
+
+        listEdit.setOnClickListener {
+            val intent = Intent(this, TodoList::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
