@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.CalendarView
 import android.widget.ImageButton
 import android.widget.TextView
+import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
