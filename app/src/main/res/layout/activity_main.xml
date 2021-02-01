@@ -128,15 +128,46 @@
                         android:paddingLeft="15dp"
                         >
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="* Today's ToDoList"
-                            android:textColor="@color/brown_num1"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:orientation="horizontal">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="* Today's ToDoList"
+                                android:textColor="@color/brown_num1"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
+                            <ImageButton
+                                android:id="@+id/listPlus"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="left"
+                                android:adjustViewBounds="true"
+                                android:backgroundTint="@color/white"
+                                android:padding="0dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_noun_plus_1727947"
+                                android:tint="@color/pink_num1">
+                            </ImageButton>
+
+                            <ImageButton
+                                android:id="@+id/listDelete"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="left"
+                                android:adjustViewBounds="true"
+                                android:backgroundTint="@color/white"
+                                android:padding="0dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_noun_minus_1727966"
+                                android:tint="@color/pink_num1">
+                            </ImageButton>
+
+                        </LinearLayout>
                         <ScrollView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
