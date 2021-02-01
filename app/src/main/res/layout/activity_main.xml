@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/userID"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userIDcheck"
+            android:layout_gravity="center"
+            android:text="님입니다."
+            android:textColor="#000000"/>
+
+        <ImageButton
+            android:id="@+id/userPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#FFFFFF"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_noun_person_2024959"
+            android:tint="@color/brown_num1"
+            android:layout_marginTop="4dp">
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </View>
+
+        <ImageButton
+            android:id="@+id/mainHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#ffffff"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_noun_home_1526044"
+            android:tint="@color/brown_num1"
+            android:layout_marginTop="4dp">
+        </ImageButton>
+
+    </LinearLayout>
+
+    //캘린더
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myCalendar">
+        </CalendarView>
+    </LinearLayout>
+
+</LinearLayout>
