@@ -148,11 +148,10 @@
                                 android:layout_gravity="left"
                                 android:adjustViewBounds="true"
                                 android:backgroundTint="@color/white"
-                                android:padding="0dp"
+                                android:padding="4dp"
                                 android:scaleType="fitCenter"
                                 android:src="@drawable/ic_noun_plus_1727947"
-                                android:tint="@color/pink_num1">
-                            </ImageButton>
+                                android:tint="@color/pink_num1"></ImageButton>
 
                             <ImageButton
                                 android:id="@+id/listDelete"
@@ -161,11 +160,10 @@
                                 android:layout_gravity="left"
                                 android:adjustViewBounds="true"
                                 android:backgroundTint="@color/white"
-                                android:padding="0dp"
+                                android:padding="4dp"
                                 android:scaleType="fitCenter"
                                 android:src="@drawable/ic_noun_minus_1727966"
-                                android:tint="@color/pink_num1">
-                            </ImageButton>
+                                android:tint="@color/pink_num1"></ImageButton>
 
                         </LinearLayout>
                         <ScrollView
