@@ -140,73 +140,37 @@
                                 android:textColor="@color/brown_num1"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"></View>
 
                             <ImageButton
                                 android:id="@+id/listPlus"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:layout_gravity="left"
+                                android:layout_gravity="center"
                                 android:adjustViewBounds="true"
                                 android:backgroundTint="@color/white"
-                                android:padding="4dp"
+                                android:layout_margin="3dp"
+                                android:padding="0dp"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/ic_noun_plus_1727947"
-                                android:tint="@color/pink_num1"></ImageButton>
-
-                            <ImageButton
-                                android:id="@+id/listDelete"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="left"
-                                android:adjustViewBounds="true"
-                                android:backgroundTint="@color/white"
-                                android:padding="4dp"
-                                android:scaleType="fitCenter"
-                                android:src="@drawable/ic_noun_minus_1727966"
+                                android:src="@drawable/ic_noun_edit_3629720"
                                 android:tint="@color/pink_num1"></ImageButton>
 
                         </LinearLayout>
-                        <ScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
 
-                            <LinearLayout
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ListView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical">
+                                android:id="@+id/todoListView"/>
 
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="토익 단어 150개 외우기" />
-
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="뭐뭐 풀기" />
-
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="뭐뭐 서류 제출하기" />
-
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="토익 단어 150개 외우기" />
-
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="뭐뭐 풀기" />
-
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="33dp"
-                                    android:text="뭐뭐 서류 제출하기" />
-
-                            </LinearLayout>
-                        </ScrollView>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
