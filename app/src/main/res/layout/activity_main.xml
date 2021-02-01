@@ -4,75 +4,168 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:background="@color/white_num1"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/userID"/>
+        // 프레임
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/userIDcheck"
-            android:layout_gravity="center"
-            android:text="님입니다."
-            android:textColor="#000000"/>
-
-        <ImageButton
-            android:id="@+id/userPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#FFFFFF"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_noun_person_2024959"
-            android:tint="@color/brown_num1"
-            android:layout_marginTop="4dp">
-        </ImageButton>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-        </View>
-
-        <ImageButton
-            android:id="@+id/mainHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#ffffff"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_noun_home_1526044"
-            android:tint="@color/brown_num1"
-            android:layout_marginTop="4dp">
-        </ImageButton>
-
-    </LinearLayout>
-
-    //캘린더
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <CalendarView
+        <FrameLayout
+            android:id="@+id/frame_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/myCalendar">
-        </CalendarView>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_navigation">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                //상단바 메뉴
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/userID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                    <TextView
+                        android:id="@+id/userIDcheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" ooo 님입니다."
+                        android:textColor="#000000" />
+
+                    <ImageButton
+                        android:id="@+id/userPage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:backgroundTint="@color/white"
+                        android:padding="0dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_noun_person_2024959"
+                        android:tint="@color/brown_num1"></ImageButton>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"></View>
+
+                    <ImageButton
+                        android:id="@+id/mainHome"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:backgroundTint="@color/white"
+                        android:padding="0dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_noun_home_1526044"
+                        android:tint="@color/brown_num1"></ImageButton>
+
+                </LinearLayout>
+
+                //캘린더
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
+
+                    <CalendarView
+                        android:id="@+id/myCalendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></CalendarView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    // 체크 리스트
+
+                    <com.dinuscxj.progressbar.CircleProgressBar
+                        android:id="@+id/cpb_circlebar"
+                        android:layout_width="135dp"
+                        android:layout_height="135dp"
+                        android:layout_margin="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:progress_end_color="#CCB5AE"
+                        app:progress_start_color="#CCB5AE"
+                        app:progress_stroke_cap="round"
+                        app:progress_stroke_width="13dp "
+                        app:progress_text_color="@color/brown_num1"
+                        app:progress_text_size="30dp"
+                        app:style="solid_line" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="* Today's ToDoList"
+                            android:textColor="@color/brown_num1"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="33dp"
+                            android:text="토익 단어 150개 외우기" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="33dp"
+                            android:text="뭐뭐 풀기" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="33dp"
+                            android:text="뭐뭐 서류 제출하기" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        // 하단 네비게이션 바
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/brown_num1"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white_num1"
+            app:menu="@menu/navigation_items" />
+    </RelativeLayout>
 
 </LinearLayout>

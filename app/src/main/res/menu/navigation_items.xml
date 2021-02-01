@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_search"
+        android:title="홈"
+        android:icon="@drawable/ic_noun_home_1526044"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:title="현황"
+        android:icon="@drawable/ic_noun_home_1526044"/>
+    <item
+        android:id="@+id/nav_navigation"
+        android:title="설정"
+        android:icon="@drawable/ic_noun_person_2024959"/>
+</menu>
