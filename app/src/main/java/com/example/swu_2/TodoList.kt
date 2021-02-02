@@ -2,6 +2,7 @@ package com.example.swu_2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 
@@ -24,26 +25,31 @@ class TodoList : AppCompatActivity() {
         listItem = ArrayList<String>()
         todoListView = findViewById(R.id.todoListView)
 
+        //리스트 추가
         listPlus.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View) {
                 listItem.add(edtList.getText().toString())
-                adapter.notifyDataSetChanged() // 변경되었음을 어답터에 알려준다.
+                adapter.notifyDataSetChanged()
                 edtList.setText("")
             }
         })
         adapter = ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, listItem)
         todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
         todoListView.setAdapter(adapter)
-        todoListView.setOnItemClickListener(object: AdapterView.OnItemClickListener {
-            // 콜백매개변수는 순서대로 어댑터뷰, 해당 아이템의 뷰, 클릭한 순번, 항목의 아이디
-            override fun onItemClick(adapterView: AdapterView<*>, view:View, i:Int, l:Long) {
-                Toast.makeText(getApplicationContext(), listItem.get(i).toString() + " 삭제되었습니다.", Toast.LENGTH_SHORT).show()
-                listItem.removeAt(i)
+
+        //리스트 삭제
+        listDelete.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(v:View) {
+                val checkedItems = todoListView.getCheckedItemPositions()
+                val count = adapter.getCount()
+                for (i in count - 1 downTo 0)
+                {
+                    if (checkedItems.get(i))
+                    { listItem.removeAt(i) }
+                }
+                todoListView.clearChoices()
                 adapter.notifyDataSetChanged()
             }
         })
-        listDelete.setOnClickListener {
-
-        }
     }
 }
