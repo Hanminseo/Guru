@@ -9,4 +9,11 @@
     <string name="specup">specup</string>
     <string name="allcontest">allcon</string>
     <string name="swu_gmail_com">swu@gmail.com</string>
+    <string name="study_with_u">STUDY WITH U</string>
+    <string name="swu">©SWU</string>
+    <string name="study_context">친구들과 함께하는 스터디 앱</string>
+    <string name="pw">비밀번호</string>
+    <string name="reg">회원가입</string>
+    <string name="name">이름</string>
+    <string name="register">가입하기</string>
 </resources>

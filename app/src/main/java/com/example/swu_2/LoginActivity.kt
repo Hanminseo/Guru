@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
                             finish()
 
                             Log.d(TAG, "signInWithEmail:success")
-                            val user = auth.currentUser
+                          //  val user = auth.currentUser
                         }else{
                             Log.w(TAG,"signInWithEmail:failure", task.exception)
                             Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT).show()
@@ -59,16 +59,16 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
+   // override fun onResume() {
+      //  super.onResume()
        // val currentUser = auth?.currentUser
         //updateUI(currentUser)
-    }
+  //  }
 
-    override fun onStart() {
-        super.onStart()
+   // override fun onStart() {
+    //    super.onStart()
        // val currentUser = auth?.currentUser
-    }
+    //}
 
 
 }

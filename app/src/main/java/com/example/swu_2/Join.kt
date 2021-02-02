@@ -26,10 +26,10 @@ class Join : AppCompatActivity() {
         //사용자가 입력한 값
         val email = findViewById<EditText>(R.id.Email)
         val password = findViewById<EditText>(R.id.Password)
-        val Ok = findViewById<Button>(R.id.Ok)
+        val btnOk = findViewById<Button>(R.id.btnOk)
 
         //계정만들기
-        Ok.setOnClickListener{
+        btnOk.setOnClickListener{
             if(email.text.toString().length == 0 || password.text.toString().length ==0){
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
             }else {
