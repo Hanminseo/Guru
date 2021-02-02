@@ -1,5 +1,7 @@
 package com.example.swu_2
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -51,5 +53,9 @@ class TodoList : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         })
+
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putStringArrayListExtra("ArrayList", listItem)
+        startActivity(intent)
     }
 }

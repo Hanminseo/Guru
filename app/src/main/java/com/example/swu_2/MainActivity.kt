@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.CalendarView
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
     CircleProgressBar.ProgressFormatter {
@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var mainHome : ImageButton
     lateinit var myCalendar : CalendarView
     lateinit var listEdit : ImageButton
+    lateinit var todoListView : ListView
+    lateinit var adapter: ArrayAdapter<String>
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         mainHome = findViewById(R.id.mainHome)
         myCalendar = findViewById(R.id.myCalendar)
         listEdit = findViewById(R.id.listEdit)
+        todoListView = findViewById(R.id.todoListView)
 
         val bottomNavigationView = findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
 
@@ -51,6 +54,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             startActivity(intent)
         }
 
+        val itemlist = intent.getStringArrayListExtra("ArrayList")
+        adapter = ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, itemlist)
+        todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
+        todoListView.setAdapter(adapter)
 
     }
 
