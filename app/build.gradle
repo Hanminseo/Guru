@@ -49,7 +49,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.2'
 
     // Add the dependencies for any other desired Firebase products
-    // https://firebase.google.com/docs/android/setup#available-libraries
+    //https://firebase.google.com/docs/android/setup#available-libraries
     implementation 'com.dinuscxj:circleprogressbar:1.3.0' // 원형 프로그레스
     //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

@@ -17,6 +17,8 @@ class TodoList : AppCompatActivity() {
     lateinit var adapter: ArrayAdapter<String>
     lateinit var listItem:ArrayList<String>
 
+    lateinit var editBtn: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo_list)
@@ -26,6 +28,8 @@ class TodoList : AppCompatActivity() {
         edtList = findViewById(R.id.edtList)
         listItem = ArrayList<String>()
         todoListView = findViewById(R.id.todoListView)
+
+        editBtn = findViewById(R.id.editBtn)
 
         //리스트 추가
         listPlus.setOnClickListener(object: View.OnClickListener {
@@ -54,8 +58,15 @@ class TodoList : AppCompatActivity() {
             }
         })
 
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putStringArrayListExtra("ArrayList", listItem)
-        startActivity(intent)
+        // 편집 버튼 클릭 시 메인 액티비티에 list를 전달하고 화면 전환
+        editBtn.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(view: View) {
+                // 인텐트 전달
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                intent.putExtra("ArrayList", listItem)
+                startActivity(intent)
+            }
+        })
+
     }
 }

@@ -15,9 +15,18 @@
         android:paddingRight="7dp"
         android:orientation="horizontal">
 
+        <ImageButton
+            android:id="@+id/editBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white_num1"
+            android:tint="@color/brown_num1"
+            app:srcCompat="@drawable/ic_noun_edit_3629720" />
+
         <EditText
             android:id="@+id/edtList"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/brown_num1"
             android:ems="13"

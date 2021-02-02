@@ -49,17 +49,25 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         circleProgressBar=findViewById(R.id.cpb_circlebar);
         circleProgressBar.setProgress(70);  // 해당 퍼센트를 적용
 
+        // 에디티 버튼 클릭시 xml 전환
         listEdit.setOnClickListener {
             val intent = Intent(this, TodoList::class.java)
             startActivity(intent)
         }
 
-        val itemlist = intent.getStringArrayListExtra("ArrayList")
-        adapter = ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, itemlist)
-        todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
-        todoListView.setAdapter(adapter)
+        // 전달된 인텐드 받기
+         val intent2 = getIntent()
+         val itemlist = intent2.getSerializableExtra("ArrayList") as? ArrayList<String>
+        // itemlist가 null 일 경우 adapter를 연결하지 않음
+         if(itemlist != null){
+             adapter = ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, itemlist)
+            todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
+            todoListView.setAdapter(adapter)
+         }
 
     }
+
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
