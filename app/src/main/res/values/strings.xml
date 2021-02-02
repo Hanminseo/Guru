@@ -2,4 +2,10 @@
     <string name="app_name">SWU-2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="site">대외활동 사이트</string>
+    <string name="logo">logo</string>
+    <string name="linkareer">link</string>
+    <string name="wevity">wevity</string>
+    <string name="specup">specup</string>
+    <string name="allcontest">allcon</string>
 </resources>

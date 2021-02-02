@@ -14,7 +14,7 @@ class StartLogo : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, Website::class.java))
 
             finish()
         }, SPLASH_TIME_OUT)
