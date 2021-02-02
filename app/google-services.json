@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "247572596158",
+    "project_id": "swubase",
+    "storage_bucket": "swubase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247572596158:android:f90f422dacaa95b088e5ef",
+        "android_client_info": {
+          "package_name": "com.example.swu_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247572596158-qpagrvedlse6q436m1m1qsnlm9s9ciqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swu_2",
+            "certificate_hash": "df5045c8391420565a93f7bd8eb203a28edbfcd3"
+          }
+        },
+        {
+          "client_id": "247572596158-ro7svg3ujr2mrc0sh9j7smbfr0cdv3r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIGGPt83p523jKJSGUKrDORGB_KfM3e9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247572596158-ro7svg3ujr2mrc0sh9j7smbfr0cdv3r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

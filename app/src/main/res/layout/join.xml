@@ -36,18 +36,20 @@
 
 
     <EditText
-        android:id="@+id/Id"
+        android:importantForAutofill="no"
+        android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:ems="10"
-        android:hint="아이디"
+        android:hint="@string/swu_gmail_com"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
+        android:importantForAutofill="no"
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
