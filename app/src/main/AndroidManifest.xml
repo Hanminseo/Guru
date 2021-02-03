@@ -17,6 +17,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".Join" />
         <activity android:name=".TodoList" />
+        <activity android:name=".Password"/>
         <activity android:name=".StartLogo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

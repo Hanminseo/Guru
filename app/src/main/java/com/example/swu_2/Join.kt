@@ -13,7 +13,7 @@ class Join : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     private val TAG : String = "Join"
-    lateinit var Ok : Button
+  //  lateinit var btnOk : Button
     //lateinit var tvReg : TextView
 
   //  @SuppressLint("WrongViewCast")

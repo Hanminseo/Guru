@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
     private val TAG : String = "LoginActivity"
     lateinit var btnLogin : Button
     lateinit var tvReg : TextView
+    lateinit var tvFind : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.edtPasswd)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvReg = findViewById<TextView>(R.id.tvReg)
+        val tvFind = findViewById<TextView>(R.id.tvFind)
 
         //로그인
         btnLogin.setOnClickListener{
@@ -37,11 +39,11 @@ class LoginActivity : AppCompatActivity() {
                             finish()
 
                             Log.d(TAG, "signInWithEmail:success")
-                          //  val user = auth.currentUser
+
                         }else{
                             Log.w(TAG,"signInWithEmail:failure", task.exception)
                             Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT).show()
-                            //updateUI(null)
+
                         }
                 }
 
@@ -49,26 +51,25 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        //비밀번호 찾기
+        tvFind.setOnClickListener{
+            val intent = Intent(this,Password::class.java)
+            startActivity(intent)
+
+
+        }
+
+
+        //회원가입
         tvReg.setOnClickListener{
             val intent = Intent(this,Join::class.java)
             startActivity(intent)
-          //  overridePendingTransition(R.anim.fadein, R.anim.fadeout) //페이지 열고닫는 효과
-            // https://jhshjs.tistory.com/32
+
 
         }
 
     }
 
-   // override fun onResume() {
-      //  super.onResume()
-       // val currentUser = auth?.currentUser
-        //updateUI(currentUser)
-  //  }
-
-   // override fun onStart() {
-    //    super.onStart()
-       // val currentUser = auth?.currentUser
-    //}
 
 
 }
