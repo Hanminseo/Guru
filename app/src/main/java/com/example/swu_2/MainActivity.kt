@@ -86,17 +86,17 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     circleProgressBar.setProgress(percentInt)
                 }
 
-//                checkInt += 1
-//                val checkedItems = todoListView.getCheckedItemPositions()
-//                for (i in count - 1 downTo 0) {
-//                    if (checkedItems.get(i)) {
-//                        checkInt += 1
-//                        percentInt += percentInt
-//                    }
-//                }
-//                todoListView.setItemChecked()
-//                percentInt = ((checkInt / count) * 100)
-//                circleProgressBar.setProgress(percentInt)
+                checkInt += 1
+                val checkedItems = todoListView.getCheckedItemPositions()
+                for (i in count - 1 downTo 0) {
+                    if (checkedItems.get(i)) {
+                        checkInt += 1
+                        percentInt += percentInt
+                    }
+                }
+                todoListView.setItemChecked()
+                percentInt = ((checkInt / count) * 100)
+                circleProgressBar.setProgress(percentInt)
             }
 
         }
