@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var adapter1: ArrayAdapter<String>
     lateinit var listItem: ArrayList<String>
     var count : Int = 0
-    var checkInt : Int = 0
-    var percentInt : Int = 0
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -78,25 +76,21 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             todoListView.adapter = listview_adapter
 
+            // 체크박스 클릭 시 프로그레스바 퍼센테이지 변경
             todoListView.setOnItemClickListener { parent, view, position, id ->
 
-                if (todoListView.isSelected == true){
-                    checkInt += 1
-                    percentInt = ((checkInt / count) * 100)
-                    circleProgressBar.setProgress(percentInt)
-                }
+                var checkInt : Double = 0.0
+                var percentInt : Double = 0.0
 
-                checkInt += 1
                 val checkedItems = todoListView.getCheckedItemPositions()
                 for (i in count - 1 downTo 0) {
                     if (checkedItems.get(i)) {
-                        checkInt += 1
-                        percentInt += percentInt
+                        checkInt++
                     }
                 }
-                todoListView.setItemChecked()
-                percentInt = ((checkInt / count) * 100)
-                circleProgressBar.setProgress(percentInt)
+
+                percentInt = ((checkInt.toDouble() / count.toDouble())*100)
+                circleProgressBar.setProgress(percentInt.toInt())
             }
 
         }
