@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.recyclerview.widget.AsyncListDiffer
 
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,8 +24,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var myCalendar: CalendarView
     lateinit var listEdit: ImageButton
     lateinit var todoListView: ListView
-    lateinit var adapter: ArrayAdapter<String>
+    lateinit var adapter1: ArrayAdapter<String>
     lateinit var listItem: ArrayList<String>
+    var count : Int = 0
+    var checkInt : Int = 0
+    var percentInt : Int = 0
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
         circleProgressBar = findViewById(R.id.cpb_circlebar);
-        circleProgressBar.setProgress(70);  // 해당 퍼센트를 적용
+        //circleProgressBar.setProgress(percentInt*checkInt);  // 해당 퍼센트를 적용
 
 
         // TodoList로부터 intent 받기
@@ -58,12 +62,43 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         // itemlist가 null 일 경우 adapter를 연결하지 않음
         if (item != null) {
-            adapter = ArrayAdapter<String>(
+            adapter1 = ArrayAdapter<String>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_multiple_choice,
                 item)
             todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
-            todoListView.setAdapter(adapter)
+            todoListView.setAdapter(adapter1)
+
+            count = adapter1.getCount()
+
+            var listview_adapter = ArrayAdapter<String>(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_multiple_choice,
+                item)
+
+            todoListView.adapter = listview_adapter
+
+            todoListView.setOnItemClickListener { parent, view, position, id ->
+
+                if (todoListView.isSelected == true){
+                    checkInt += 1
+                    percentInt = ((checkInt / count) * 100)
+                    circleProgressBar.setProgress(percentInt)
+                }
+
+//                checkInt += 1
+//                val checkedItems = todoListView.getCheckedItemPositions()
+//                for (i in count - 1 downTo 0) {
+//                    if (checkedItems.get(i)) {
+//                        checkInt += 1
+//                        percentInt += percentInt
+//                    }
+//                }
+//                todoListView.setItemChecked()
+//                percentInt = ((checkInt / count) * 100)
+//                circleProgressBar.setProgress(percentInt)
+            }
+
         }
 
         // 에디티 버튼 클릭시 TodoList로 intent 전달
