@@ -12,7 +12,7 @@
             android:title="로그아웃"/>
 
         <item android:id="@+id/delete"
-            android:icon="@drawable/ic_noun_logout_1262622"
+            android:icon="@drawable/ic_noun_delete_1533147"
             android:title="계정 삭제"/>
 
         <item android:id="@+id/SWUInfo"
