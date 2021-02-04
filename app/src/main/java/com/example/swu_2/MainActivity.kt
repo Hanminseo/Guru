@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import androidx.recyclerview.widget.AsyncListDiffer
 
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var userID: TextView
     lateinit var userIDcheck: TextView
     lateinit var userPage: ImageButton
-    lateinit var mainHome: ImageButton
     lateinit var myCalendar: CalendarView
     lateinit var listEdit: ImageButton
     lateinit var todoListView: ListView
@@ -39,7 +37,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         userID = findViewById(R.id.userID)
         userIDcheck = findViewById(R.id.userIDcheck)
         userPage = findViewById(R.id.userPage)
-        mainHome = findViewById(R.id.mainHome)
         myCalendar = findViewById(R.id.myCalendar)
         listEdit = findViewById(R.id.listEdit)
         todoListView = findViewById(R.id.todoListView)
@@ -106,18 +103,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_search -> {
+            R.id.nav_home -> {
                 supportFragmentManager.beginTransaction().replace(R.id.frame_container, Frag01())
                     .commit()
                 return true
             }
-            R.id.nav_settings -> {
-                supportFragmentManager.beginTransaction().replace(R.id.frame_container, Frag01())
+            R.id.nav_timer -> {
+                supportFragmentManager.beginTransaction().replace(R.id.frame_container, Frag02())
                     .commit()
                 return true
             }
-            R.id.nav_navigation -> {
-                supportFragmentManager.beginTransaction().replace(R.id.frame_container, Frag01())
+            R.id.nav_web -> {
+                supportFragmentManager.beginTransaction().replace(R.id.frame_container, Frag03())
                     .commit()
                 return true
             }

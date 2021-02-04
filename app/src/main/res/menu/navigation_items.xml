@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/nav_search"
-        android:title="홈"
-        android:icon="@drawable/ic_noun_home_1526044"/>
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_noun_home_1526044"
+        android:title="홈" />
     <item
-        android:id="@+id/nav_settings"
-        android:title="현황"
-        android:icon="@drawable/ic_noun_home_1526044"/>
+        android:id="@+id/nav_timer"
+        android:icon="@drawable/ic_noun_timer_3704373"
+        android:title="타이머" />
     <item
-        android:id="@+id/nav_navigation"
-        android:title="설정"
-        android:icon="@drawable/ic_noun_person_2024959"/>
+        android:id="@+id/nav_web"
+        android:icon="@drawable/ic_noun_globe_2988260"
+        android:title="웹" />
 </menu>

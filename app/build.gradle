@@ -39,7 +39,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 dependencies {
-
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:26.4.0')
 
