@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var listItem: ArrayList<String>
     lateinit var layout_drawer : DrawerLayout
     lateinit var naviView : NavigationView
+    lateinit var mAuth: FirebaseAuth
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -157,12 +159,37 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
                 return true
             }
-            R.id.access -> {
-                Toast.makeText(applicationContext, "일단 구현전", Toast.LENGTH_SHORT).show()
+            R.id.accountInfo -> {
+                //drawer 메뉴 내계정
+                val intent = Intent(this, AccountInfo::class.java)
+                startActivity(intent)
             }
+
             R.id.logout -> {
-                Toast.makeText(applicationContext, "일단 구현전", Toast.LENGTH_SHORT).show()
+                //drawer 메뉴 로그아웃
+                FirebaseAuth.getInstance().signOut();
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(applicationContext, "로그아웃 완료", Toast.LENGTH_SHORT).show()
+
             }
+
+            R.id.delete -> {
+                //drawer 메뉴 회원 탈퇴
+                mAuth = FirebaseAuth.getInstance();
+                mAuth.getCurrentUser()?.delete();
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(applicationContext, "계정삭제 완료", Toast.LENGTH_SHORT).show()
+
+            }
+
+            R.id.SWUInfo -> {
+                //drawer 메뉴 개발자 정보
+                val intent = Intent(this, SwuInfo::class.java)
+                startActivity(intent)
+            }
+
         }
         layout_drawer.closeDrawers()
         return false
