@@ -16,7 +16,7 @@ class StartLogo : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
 
             finish()
         }, SPLASH_TIME_OUT)

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
@@ -14,12 +15,14 @@ class LoginActivity : AppCompatActivity() {
     lateinit var btnLogin : Button
     lateinit var tvReg : TextView
     lateinit var tvFind : TextView
+    lateinit var db : FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         val email = findViewById<EditText>(R.id.edtId)
         val password = findViewById<EditText>(R.id.edtPasswd)

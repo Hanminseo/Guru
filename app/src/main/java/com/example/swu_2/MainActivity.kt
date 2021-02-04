@@ -16,6 +16,7 @@ import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
@@ -69,7 +70,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         circleProgressBar = findViewById(R.id.cpb_circlebar);
         //circleProgressBar.setProgress(percentInt*checkInt);  // 해당 퍼센트를 적용
-
 
         // 어댑터 연결
         adapter = ArrayAdapter<String>(
