@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/access"
+            android:icon="@drawable/ic_noun_account_1402829"
+            android:title="계정 정보"/>
+
+        <item android:id="@+id/logout"
+            android:icon="@drawable/ic_noun_logout_1262622"
+            android:title="로그아웃"/>
+
+    </group>
+</menu>
