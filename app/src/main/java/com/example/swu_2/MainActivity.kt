@@ -2,18 +2,20 @@ package com.example.swu_2
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.ArrayList
+import com.google.android.material.navigation.NavigationView
+import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
-    CircleProgressBar.ProgressFormatter {
+    CircleProgressBar.ProgressFormatter, NavigationView.OnNavigationItemSelectedListener {
 
     //변수
     lateinit var userID: TextView
@@ -24,7 +26,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var todoListView: ListView
     lateinit var adapter1: ArrayAdapter<String>
     lateinit var listItem: ArrayList<String>
+    lateinit var layout_drawer : DrawerLayout
     var count : Int = 0
+    lateinit var naviView : NavigationView
+
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
@@ -41,6 +46,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         listEdit = findViewById(R.id.listEdit)
         todoListView = findViewById(R.id.todoListView)
         listItem = ArrayList<String>()
+        layout_drawer = findViewById(R.id.layout_drawer)
+        naviView = findViewById(R.id.naviView)
 
         val bottomNavigationView =
             findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
@@ -98,6 +105,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             OutIntent.putExtra("ArrayList2", item)
             startActivity(OutIntent)
         }
+
+        //유저 페이지로 이동
+        userPage.setOnClickListener {
+            layout_drawer.openDrawer(GravityCompat.START)
+        }
+        naviView.setNavigationItemSelectedListener(this)
     }
 
 
@@ -118,9 +131,26 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
                 return true
             }
+            R.id.access -> {
+                Toast.makeText(applicationContext, "일단 구현전", Toast.LENGTH_SHORT).show()
+            }
+            R.id.logout -> {
+                Toast.makeText(applicationContext, "일단 구현전", Toast.LENGTH_SHORT).show()
+            }
         }
+        layout_drawer.closeDrawers()
         return false
     }
+
+    override fun onBackPressed() {
+
+        if (layout_drawer.isDrawerOpen(GravityCompat.START)){
+            layout_drawer.closeDrawers()
+        }else{
+            super.onBackPressed()
+        }
+    }
+
 
     override fun format(progress: Int, max: Int): CharSequence? {
         return String.format(
