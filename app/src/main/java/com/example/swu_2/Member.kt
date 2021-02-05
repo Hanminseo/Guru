@@ -5,7 +5,6 @@ package com.example.swu_2
 data class Member(var storeName : String? = null,
                   var storeEmail : String? = null,
                   var storeBirth : String? = null,
-                  var storePwd : String? = null,
                   var storePhone : String? = null,
                   var storeUid : String? = null
 ) {

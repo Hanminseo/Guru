@@ -5,6 +5,7 @@ import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.util.Log
 import android.util.SparseBooleanArray
 import android.view.MenuItem
 import android.view.View
@@ -71,16 +72,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         //firestore 도전!!!!!!!!!
         fireEmail = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+        val store_uid = fireEmail?.uid
 
-        val storeEmail =fireEmail?.currentUser?.email
-
-        userID.setText(storeEmail)
-        firestore?.collection("Member")?.document("storeEmail")?.get()?.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(this@MainActivity,storeEmail,Toast.LENGTH_LONG).show()
-                //var userDTO = task.result.toObject(UserDTO::class.java)
-                // println(userDTO.toString())
-            }
+        //로그인 이름 연결
+        val docRef = firestore?.collection("member")?.document(store_uid.toString())
+        docRef?.get()?.addOnSuccessListener {
+            val member = it.toObject(Member::class.java)
+            userID.setText(member?.storeName)
         }
 
         val bottomNavigationView =
@@ -90,13 +88,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         circleProgressBar = findViewById(R.id.cpb_circlebar);
         //circleProgressBar.setProgress(percentInt*checkInt);  // 해당 퍼센트를 적용
-
-        //로그인 이름 연결
-        firestore?.collection("member")?.get()?.addOnCompleteListener { task ->
-            if(task.isSuccessful){
-
-            }
-        }
 
         // 어댑터 연결
         adapter = ArrayAdapter<String>(

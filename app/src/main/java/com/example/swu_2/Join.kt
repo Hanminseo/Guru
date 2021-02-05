@@ -61,7 +61,6 @@ class Join : AppCompatActivity() {
                                 userInfo.storeBirth=birthday.getText().toString()
                                 userInfo.storeName=name.getText().toString()
                                 userInfo.storePhone=phonenum.getText().toString()
-                                userInfo.storePwd=password.getText().toString()
 
                                 emailFirestore?.collection("member")?.document(emailAuth?.uid.toString())?.set(userInfo)
                             }
