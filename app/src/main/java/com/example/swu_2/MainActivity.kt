@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     lateinit var naviView : NavigationView
     lateinit var mAuth: FirebaseAuth
 
+    //firestore 도전
+    var fireEmail : FirebaseAuth? = null
+    var firestore : FirebaseFirestore? = null
+
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
     lateinit var circleProgressBar: CircleProgressBar
@@ -63,6 +67,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         layout_drawer = findViewById(R.id.layout_drawer)
         naviView = findViewById(R.id.naviView)
 
+
+        //firestore 도전!!!!!!!!!
+        fireEmail = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        val storeEmail =fireEmail?.currentUser?.email
+
+        userID.setText(storeEmail)
+        firestore?.collection("Member")?.document("storeEmail")?.get()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this@MainActivity,storeEmail,Toast.LENGTH_LONG).show()
+                //var userDTO = task.result.toObject(UserDTO::class.java)
+                // println(userDTO.toString())
+            }
+        }
+
         val bottomNavigationView =
             findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
 
@@ -70,6 +90,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         circleProgressBar = findViewById(R.id.cpb_circlebar);
         //circleProgressBar.setProgress(percentInt*checkInt);  // 해당 퍼센트를 적용
+
+        //로그인 이름 연결
+        firestore?.collection("member")?.get()?.addOnCompleteListener { task ->
+            if(task.isSuccessful){
+
+            }
+        }
 
         // 어댑터 연결
         adapter = ArrayAdapter<String>(

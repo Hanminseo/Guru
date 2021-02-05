@@ -6,8 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frag03">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -16,59 +15,67 @@
 
         <ImageButton
             android:id="@+id/allcon"
-            android:layout_width="217dp"
-            android:layout_height="205dp"
+            android:layout_width="195dp"
+            android:layout_height="220dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:adjustViewBounds="true"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/allcontest"
             android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/wevity"
+            app:layout_constraintEnd_toStartOf="@+id/linkareer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/allocontests"
-            android:contentDescription="@string/allcontest" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/allocontests" />
 
         <ImageButton
             android:id="@+id/specup"
-            android:layout_width="217dp"
-            android:layout_height="205dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="195dp"
+            android:layout_height="220dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="70dp"
             android:adjustViewBounds="true"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/specup"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/allcon"
-            app:srcCompat="@drawable/spaceup"
-            android:contentDescription="@string/specup" />
+            app:layout_constraintTop_toBottomOf="@+id/linkareer"
+            app:srcCompat="@drawable/spaceup" />
 
         <ImageButton
             android:id="@+id/wevity"
-            android:layout_width="217dp"
-            android:layout_height="205dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="195dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginBottom="70dp"
             android:adjustViewBounds="true"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/wevity"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/allcon"
-            app:srcCompat="@drawable/wevity"
-            android:contentDescription="@string/wevity" />
+            app:srcCompat="@drawable/wevity" />
 
         <ImageButton
             android:id="@+id/linkareer"
-            android:layout_width="217dp"
-            android:layout_height="205dp"
-            android:layout_marginTop="200dp"
+            android:layout_width="195dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="50dp"
             android:adjustViewBounds="true"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/linkareer"
             android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/specup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/linkareer"
-            android:contentDescription="@string/linkareer" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/allcon"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/linkareer" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -76,10 +83,10 @@
             android:layout_height="108dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="40dp"
+            android:contentDescription="@string/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo2"
-            android:contentDescription="@string/logo" />
+            app:srcCompat="@drawable/logo2" />
 
         <TextView
             android:id="@+id/textView4"
