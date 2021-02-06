@@ -1,64 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".TodoList">
+    android:background="@color/white_num1"
+    tools:context=".TodoList2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="7dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/editBtn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white_num1"
-            android:tint="@color/brown_num1"
-            app:srcCompat="@drawable/ic_noun_edit_3629720" />
+            android:orientation="horizontal"
+            android:paddingLeft="14dp"
+            android:paddingTop="30dp"
+            android:paddingRight="7dp">
 
-        <EditText
-            android:id="@+id/edtList"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/brown_num1"
-            android:ems="13"
-            android:hint="일정 추가" />
+            <ImageButton
+                android:id="@+id/editBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_num1"
+                android:tint="@color/brown_num1"
+                app:srcCompat="@drawable/ic_noun_edit_3629720" />
 
-        <ImageButton
-            android:id="@+id/listPlus"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="3dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="@color/white"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:tint="@color/brown_num1"
-            android:src="@drawable/ic_noun_plus_1727947" />
-        <ImageButton
-            android:id="@+id/listDelete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="3dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="@color/white"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:tint="@color/brown_num1"
-            android:src="@drawable/ic_noun_minus_1727966" />
+            <EditText
+                android:id="@+id/edtList"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/brown_num1"
+                android:ems="13"
+                android:hint="일정 추가" />
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/listPlus"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_noun_plus_1727947"
+                android:tint="@color/brown_num1" />
+
+            <ImageButton
+                android:id="@+id/listDelete"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_noun_minus_1727966"
+                android:tint="@color/brown_num1" />
+
+        </LinearLayout>
 
         <ListView
             android:id="@+id/todoListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>

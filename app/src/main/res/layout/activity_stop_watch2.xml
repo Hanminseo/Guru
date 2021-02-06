@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_num1"
+    tools:context=".StopWatch2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_num1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            //과목
+
+            <EditText
+                android:id="@+id/subjectName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="40dp"
+                android:background="@drawable/round"
+                android:hint="과목명 : "
+                android:paddingLeft="30dp"
+                android:paddingTop="8dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/brown_num2"
+                android:textSize="20sp"
+                android:textStyle="bold"></EditText>
+
+            //시,분
+
+            //버튼
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/stopwatch_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00 : 00 : 00"
+                    android:textColor="@color/brown_num2"
+                    android:textSize="55sp"></TextView>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/playbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00ff0000"
+                android:paddingTop="10dp"
+                android:src="@drawable/ic_noun_play_943866"
+                android:tint="@color/brown_num2"></ImageButton>
+
+            //공부하는 날짜 과목 시간 등록버튼
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/datestring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="30dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"></TextView>
+                <View
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center"
+                    android:background="#5C997E75"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/you_study"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="학습 과목 : "
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/study_subject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="과목명"
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/you_studytime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="학습 시간 : "
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/i_studytime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="00 : 00 : 00"
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/upload_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="@color/pink_num1"
+                    android:text="등록"
+                    android:textColor="@color/brown_num2"
+                    android:textSize="22sp"
+                    android:textStyle="bold"></Button>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

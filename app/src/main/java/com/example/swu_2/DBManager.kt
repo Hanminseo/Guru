@@ -11,7 +11,8 @@ class DBManager(
     version: Int
 ) : SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db!!.execSQL("CREATE TABLE itemTBL (item text, checked text);") //테이블 생성
+        db!!.execSQL("CREATE TABLE todolistTBL (item text, checked text);") // itemTBL 테이블 생성
+        db!!.execSQL("CREATE TABLE stopwatchTBL (subject text, time text, targetTime text);") // stopwatchTBL 테이블 생성
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
