@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white_num1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="오늘의 일정"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="25dp"
+        android:textColor="@color/brown_num2"
+        android:textStyle="bold"
+        >
+    </TextView>
+    <ListView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/todolist_SV"
+        android:layout_weight="1"
+        android:background="@drawable/round">
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.8"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/what_todo"
+            android:hint="일정을 적어주세요"
+            android:paddingTop="15dp"
+            android:layout_weight="9">
+        </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"></View>
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="저장"
+                android:id="@+id/savetodo"
+                android:background="#00ff0000"
+                android:tint="@color/brown_num1"
+                android:src="@drawable/ic_noun_plus_1727947"
+                android:scaleType="fitCenter"
+                android:gravity="bottom|right"
+                >
+            </ImageButton>
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="삭제"
+                android:id="@+id/deletetodo"
+                android:background="#00ff0000"
+                android:tint="@color/brown_num1"
+                android:src="@drawable/ic_noun_minus_1727966"
+                android:scaleType="fitCenter"
+                android:gravity="bottom|right">
+            </ImageButton>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

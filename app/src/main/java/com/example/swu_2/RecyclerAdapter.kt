@@ -8,11 +8,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapter(val context: Context, val timeList: ArrayList<Time>) :
@@ -57,7 +54,7 @@ class RecyclerAdapter(val context: Context, val timeList: ArrayList<Time>) :
 
         fun bind(Time: Time, context: Context) {
             // 포토 지정
-            PhotoImg?.setImageResource(R.mipmap.ic_launcher_round)
+            PhotoImg?.setImageResource(R.drawable.ic_noun_book_1506392)
 
             // 텍스트뷰에 String 값 전달
             subjectName?.text = Time.subject

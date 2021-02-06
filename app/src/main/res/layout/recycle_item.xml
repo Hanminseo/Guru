@@ -58,7 +58,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        android:paddingTop="10dp"
+        app:tint="@color/brown_num2" />
 
 
     <androidx.constraintlayout.widget.Guideline
