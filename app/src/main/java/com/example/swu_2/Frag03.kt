@@ -27,14 +27,14 @@ class Frag03 : Fragment(){
         return inflater.inflate(R.layout.frag03, container, false)
     }
 
-    //frag에서 뒤로가기 버튼
+    //frag에서 뒤로가기 버튼 누르면 메인(Frag01)으로 이동
     private lateinit var callback: OnBackPressedCallback
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                fragmentManager?.beginTransaction()?.remove(this@Frag03)?.commit()
+                (activity as MainActivity).replaceFragment(Frag01())
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
@@ -44,6 +44,8 @@ class Frag03 : Fragment(){
         super.onDetach()
         callback.remove()
     }
+
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         allcon = getView()?.findViewById(R.id.allcon)!!

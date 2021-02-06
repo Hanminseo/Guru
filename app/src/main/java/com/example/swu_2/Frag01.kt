@@ -1,27 +1,21 @@
 package com.example.swu_2
 
-import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.dinuscxj.progressbar.CircleProgressBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
@@ -56,6 +50,10 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
     lateinit var circleProgressBar: CircleProgressBar
     var count: Int = 0
 
+    //firebase,db 연결
+    var fireEmail : FirebaseAuth? = null
+    var firestore : FirebaseFirestore? = null
+
 
     //lateinit var fragmentManager: FragmentManager
     lateinit var fragmentTransaction: FragmentTransaction
@@ -64,7 +62,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    
+
     ): View? {
         // frag02 xml로 화면 구성
         val view: View = inflater.inflate(R.layout.frag01, container, false)
@@ -78,6 +76,21 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         todoListView = view.findViewById(R.id.todoListView)
         listItem = ArrayList<String>()
         layout_drawer = view.findViewById(R.id.layout_drawer)
+
+        fireEmail = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        //firestore 도전!!!!!!!!!
+        fireEmail = FirebaseAuth.getInstance()  //userInfo.storeUid = emailAuth?.uid
+        firestore = FirebaseFirestore.getInstance()
+
+        val store_uid = fireEmail?.uid
+
+        val docRef = firestore?.collection("member")?.document(store_uid.toString())
+        docRef?.get()?.addOnSuccessListener {
+            val member = it.toObject(Member::class.java)
+            userID.setText(member?.storeName)
+        }
 
 
         circleProgressBar = view.findViewById(R.id.cpb_circlebar);

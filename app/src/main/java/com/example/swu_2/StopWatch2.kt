@@ -114,7 +114,6 @@ class StopWatch2 : Fragment() {
         }
         playbtn.setImageResource(R.drawable.ic_noun_pause_2494384)
         study_subject.text = subjectName.text.toString()
-        time = 30000
         timerTask = timer(period = 10) {
             time++
 
