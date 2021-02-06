@@ -141,14 +141,13 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             (activity as MainActivity).replaceFragment(TodoList2())
         }
 
-/*
         //유저 페이지로 이동
         userPage.setOnClickListener {
-            layout_drawer.openDrawer(GravityCompat.START)
+            var flag = 1
+            val intent = Intent(getActivity(), MainActivity::class.java)
+            intent.putExtra("flag", flag)
+            startActivity(intent)
         }
-
-
- */
         return view
     }
 

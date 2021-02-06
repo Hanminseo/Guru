@@ -63,7 +63,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val bottomNavigationView =
             findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
         naviView = findViewById(R.id.naviView)
+        layout_drawer = findViewById(R.id.layout_drawer)
 
+        var intent = intent
+        var flag = intent.getIntExtra("flag", 0)
+        if(flag != 0){
+            layout_drawer.openDrawer(GravityCompat.START)
+        }
         replaceFragment(Frag01())
         naviView.setNavigationItemSelectedListener(this)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
