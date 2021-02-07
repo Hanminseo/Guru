@@ -77,6 +77,12 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         listItem = ArrayList<String>()
         layout_drawer = view.findViewById(R.id.layout_drawer)
 
+
+        //caldendar 연결
+        myCalendar.setOnClickListener {
+            (activity as MainActivity).replaceFragment(Frag04())
+        }
+
         fireEmail = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 

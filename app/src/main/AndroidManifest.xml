@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SWU2">
+        <activity android:name=".Calendarlist"></activity>
         <activity android:name=".Website" />
-
         <activity android:name=".LoginActivity" />
         <activity android:name=".Join" />
         <activity android:name=".TodoList" />
-        <activity android:name=".Password"/>
+        <activity android:name=".Password" />
         <activity android:name=".SwuInfo" />
-        <activity android:name=".AccountInfo"/>
+        <activity android:name=".AccountInfo" />
         <activity android:name=".StartLogo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
