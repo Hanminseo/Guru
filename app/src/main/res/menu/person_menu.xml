@@ -19,5 +19,9 @@
             android:icon="@drawable/ic_noun_info_2177686"
             android:title="개발자 정보"/>
 
+        <item android:id="@+id/gongji"
+            android:icon="@drawable/ic_noun_notice_2918258"
+            android:title="전체 공지"/>
+
     </group>
 </menu>
