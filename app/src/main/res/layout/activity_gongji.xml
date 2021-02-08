@@ -34,7 +34,8 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textStyle="bold"
-            android:textAlignment="center">
+            android:textAlignment="center"
+            android:id="@+id/noticelist">
         </TextView>
 
     </LinearLayout>
@@ -57,7 +58,8 @@
             android:hint="공지를 입력하세요"
             android:paddingLeft="10dp"
             android:background="@drawable/round"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/noticeedit">
         </EditText>
     </LinearLayout>
 
@@ -74,7 +76,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="저장"
-            android:id="@+id/savetodo"
+            android:id="@+id/savenotice"
             android:background="#00ff0000"
             android:tint="@color/brown_num1"
             android:src="@drawable/ic_noun_plus_1727947"
@@ -88,7 +90,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="삭제"
-            android:id="@+id/deletetodo"
+            android:id="@+id/deletenotice"
             android:background="#00ff0000"
             android:tint="@color/brown_num1"
             android:src="@drawable/ic_noun_minus_1727966"
