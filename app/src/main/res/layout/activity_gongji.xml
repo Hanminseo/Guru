@@ -47,30 +47,29 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:layout_marginTop="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/brown_round"
-            android:paddingLeft="10dp"
-            android:paddingTop="25dp"
             android:hint="공지 내용"
             android:textAlignment="center"
             android:textColor="@color/white_num1"
             android:textSize="20dp"
             android:id="@+id/notice_r"
             android:textStyle="bold"
+            android:layout_weight="1"
+            android:gravity="center"
             ></TextView>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:background="@drawable/round"
             android:hint="공지를 입력하세요"
             android:textAlignment="center"
             android:id="@+id/notice_w"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"
+            ></EditText>
     </LinearLayout>
 
     <LinearLayout

@@ -121,6 +121,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 startActivity(intent)
             }
 
+            R.id.gongji -> {
+                //공지 편집창 이동
+                val intent = Intent(this, Gonggi::class.java)
+                startActivity(intent)
+            }
+
         }
         layout_drawer.closeDrawers()
         return false
