@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white_num1">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_num1"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:text="오늘의 일정"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="25dp"
-        android:textColor="@color/brown_num2"
-        android:textStyle="bold"
-        >
-    </TextView>
-    <ListView
-        android:layout_marginTop="20dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_weight="5"
+            android:gravity="right"
+            android:text="오늘의 일정"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/brown_num2"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/editBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="2"
+            android:backgroundTint="@color/white_num1"
+            android:tint="@color/brown_num1"
+            app:srcCompat="@drawable/ic_noun_edit_3629720" />
+    </LinearLayout>
+
+    <ListView
         android:id="@+id/todolist_SV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:background="@drawable/round">
-    </ListView>
+        android:background="@drawable/round"></ListView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,43 +59,43 @@
             android:backgroundTint="@color/brown_num1"
             android:hint="일정을 적어주세요"
             android:paddingTop="15dp"></EditText>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"></View>
+
             <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="저장"
                 android:id="@+id/savetodo"
-                android:background="#00ff0000"
-                android:tint="@color/brown_num1"
-                android:src="@drawable/ic_noun_plus_1727947"
-                android:scaleType="fitCenter"
-                android:gravity="bottom|right"
-                >
-            </ImageButton>
-            <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:text="삭제"
-                android:id="@+id/deletetodo"
                 android:background="#00ff0000"
-                android:tint="@color/brown_num1"
-                android:src="@drawable/ic_noun_minus_1727966"
+                android:gravity="bottom|right"
                 android:scaleType="fitCenter"
-                android:gravity="bottom|right">
-            </ImageButton>
+                android:src="@drawable/ic_noun_plus_1727947"
+                android:text="저장"
+                android:tint="@color/brown_num1" />
+
+            <ImageButton
+                android:id="@+id/deletetodo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#00ff0000"
+                android:gravity="bottom|right"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_noun_minus_1727966"
+                android:text="삭제"
+                android:tint="@color/brown_num1"></ImageButton>
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>

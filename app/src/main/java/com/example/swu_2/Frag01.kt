@@ -85,9 +85,15 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         noticeview.setSelected( true );
 
 
-        //caldendar 연결
-        myCalendar.setOnClickListener {
+        //caldendar 날짜 클릭 리스너
+        myCalendar.setOnDateChangeListener { view, year, month, day ->
+            var strDay = String.format("%d.%02d.%02d", year, month+1, day)
+            sqlDB = dbManager.writableDatabase
+            // 마지막 쿼리 '1'은 선택 여부를 의미/ '1'은 선택,'0'은 미선택(default)
+            sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
+            sqlDB.close()
             (activity as MainActivity).replaceFragment(Frag04())
+
         }
 
 
