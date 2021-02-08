@@ -1,9 +1,7 @@
 package com.example.swu_2
 
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,9 +47,9 @@ class Frag04 : Fragment() {
         todolist_SV.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
         todolist_SV.setAdapter(adapter)
 
-        dbManager = DBManager(context?.applicationContext, "calendardb", null, 1)
-        sqlDB = dbManager.readableDatabase
-
+        //dbManager = DBManager(context?.applicationContext, "calendardb", null, 1)
+        //sqlDB = dbManager.readableDatabase
+/*
         var cursor: Cursor
         cursor = sqlDB.rawQuery("SELECT item FROM calendarTBL;", null)
         while (cursor.moveToNext()) {
@@ -60,6 +58,9 @@ class Frag04 : Fragment() {
         }
         cursor.close()
         sqlDB.close()
+
+
+ */
         adapter.notifyDataSetChanged()
 
         savetodo.setOnClickListener {

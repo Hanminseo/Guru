@@ -31,7 +31,7 @@
                     android:id="@+id/dateTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2021년 02월 04일 "
+                    android:text="0000년 00월 00일"
                     android:textColor="@color/brown_num2"
                     android:textSize="22sp" />
                 <LinearLayout
