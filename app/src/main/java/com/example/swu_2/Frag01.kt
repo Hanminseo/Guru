@@ -81,6 +81,9 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
 
         noticeview = view.findViewById(R.id.noticeview)
 
+        //textView 계속 흐르도록...
+        noticeview.setSelected( true );
+
 
         //caldendar 연결
         myCalendar.setOnClickListener {
