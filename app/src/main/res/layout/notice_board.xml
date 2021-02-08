@@ -18,6 +18,13 @@
             android:textColor="@color/brown_num2"
             android:textStyle="bold"></TextView>
 
-
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/boardlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round2"
+        android:padding="35dp"
+        />
 </LinearLayout>
