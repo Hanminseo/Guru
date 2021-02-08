@@ -31,6 +31,7 @@ class Gonggi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gongji)
 
+
         auth = FirebaseAuth.getInstance()
 
         //firestore
@@ -109,6 +110,11 @@ class Gonggi : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
 
