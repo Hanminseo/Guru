@@ -95,7 +95,6 @@
                             android:ellipsize="marquee"
                             android:marqueeRepeatLimit="marquee_forever"
                             android:focusable="true"
-                            android:text=""
                             android:focusableInTouchMode="true"
                             android:paddingLeft="20dp"
                             android:textStyle="bold"
