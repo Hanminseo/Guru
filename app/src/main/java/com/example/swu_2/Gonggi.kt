@@ -59,7 +59,7 @@ class Gonggi : AppCompatActivity() {
                 //객체 내용 띄우기
 
                 val name = member?.storeName
-                val phone = member?.storePhone
+                val phone = member?.storeGroup
 
                 //firestore 저장
 
@@ -91,7 +91,7 @@ class Gonggi : AppCompatActivity() {
 
                 //객체 내용 띄우기
 
-                val phone = member?.storePhone
+                val phone = member?.storeGroup
 
                 var groupInfo = group_m()
 

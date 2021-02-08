@@ -13,20 +13,18 @@ class Join : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     private val TAG : String = "Join"
-    //  lateinit var btnOk : Button
-    //lateinit var tvReg : TextView
 
     var emailAuth : FirebaseAuth? = null
     var emailFirestore : FirebaseFirestore? = null
 
-    //  @SuppressLint("WrongViewCast")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.join)
 
         auth = FirebaseAuth.getInstance()
 
-        //firestore
+        //firestore접근용
         emailAuth = FirebaseAuth.getInstance()
         emailFirestore = FirebaseFirestore.getInstance()
 
@@ -37,44 +35,47 @@ class Join : AppCompatActivity() {
         val btnOk = findViewById<Button>(R.id.btnOk)
         val name = findViewById<EditText>(R.id.Name)
         val birthday = findViewById<EditText>(R.id.Birthday)
-        val phonenum = findViewById<EditText>(R.id.PhoneNum)
+        val groupnum= findViewById<EditText>(R.id.GroupNum)
 
         //계정만들기
         btnOk.setOnClickListener{
+
+            //email,password 공백시 오류
             if(email.text.toString().length == 0 || password.text.toString().length ==0){
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
-            }else if(phonenum.text.toString().length <= 6){
+            }
+            //그룹코드 6자리 이하 입력시 오류
+            else if(groupnum.text.toString().length <= 6){
                 Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
             }
-            else if(phonenum.text.toString().length <= 6){
-                Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
-            }
+            //그외 firebase에 저장
             else {
                 auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
                     .addOnCompleteListener(this){ task ->
                         if(task.isSuccessful) {
                             Log.d(TAG, "createUserWithEmail:success")
-                            // val user = auth.currentUser
                             finish()
 
-                            //firestore 저장
+                            //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
                             if(true){
-                                var userInfo = Member()
-                                var groupInfo  = group_m()
+                                var userInfo = Member() //회원정보 저장 객체
+                                var groupInfo  = group_m() //공지내용 저장 객체
 
+                                //회원정보 객체에 저장
                                 userInfo.storeUid = emailAuth?.uid
                                 userInfo.storeEmail=emailAuth?.currentUser?.email
                                 userInfo.storeBirth=birthday.getText().toString()
                                 userInfo.storeName=name.getText().toString()
-                                userInfo.storePhone=phonenum.getText().toString()
+                                userInfo.storeGroup=groupnum.getText().toString()
 
                                 groupInfo.storeContent="null"
 
-
+                                //객체내용 firestore에 저장
                                 emailFirestore?.collection("member")?.document(emailAuth?.uid.toString())?.set(userInfo)
-
-                                emailFirestore?.collection("group")?.document(phonenum.getText().toString())?.set(groupInfo)
+                                //그룹코드 문서생성
+                                emailFirestore?.collection("group")?.document(groupnum.getText().toString())?.set(groupInfo)
                             }
+
                         }else{
                             Log.w(TAG,"createUserWithEmail:failure", task.exception)
                             Toast.makeText(

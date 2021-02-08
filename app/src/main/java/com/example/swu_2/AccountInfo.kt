@@ -14,7 +14,7 @@ class AccountInfo : AppCompatActivity() {
 
     lateinit var userName: TextView
     lateinit var userEmail: TextView
-    lateinit var phoneNum: TextView
+    lateinit var groupNum: TextView
     lateinit var birth: TextView
 
     //firebase,db 연결
@@ -27,7 +27,7 @@ class AccountInfo : AppCompatActivity() {
 
         userName = findViewById(R.id.userName)
         userEmail = findViewById(R.id.userEmail)
-        phoneNum = findViewById(R.id.phoneNum)
+        groupNum = findViewById(R.id.GroupNum)
         birth = findViewById(R.id.birth)
 
         //계정 초기화
@@ -45,7 +45,7 @@ class AccountInfo : AppCompatActivity() {
             //객체 내용 띄우기
             userName.setText(member?.storeName)
             userEmail.setText(member?.storeEmail)
-            phoneNum.setText(member?.storePhone)
+            groupNum.setText(member?.storeGroup)
             birth.setText(member?.storeBirth)
         }
 

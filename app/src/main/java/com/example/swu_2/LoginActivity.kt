@@ -30,18 +30,23 @@ class LoginActivity : AppCompatActivity() {
 
         //로그인
         btnLogin.setOnClickListener{
+
+            //공백시 오류메세지
             if(email.text.toString().length == 0 || password.text.toString().length==0) {
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
             }else{
+                //이메일,비번 로그인 성공여부 확인
                 auth.signInWithEmailAndPassword(email.text.toString(),password.text.toString())
                     .addOnCompleteListener(this){ task ->
                         if(task.isSuccessful) {
+                            //성공시 메인엑티비티로 전환
                             startActivity(Intent(this, MainActivity::class.java))
                             finish()
 
                             Log.d(TAG, "signInWithEmail:success")
 
                         }else{
+                            //실패시 오류메세지
                             Log.w(TAG,"signInWithEmail:failure", task.exception)
                             Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT).show()
 

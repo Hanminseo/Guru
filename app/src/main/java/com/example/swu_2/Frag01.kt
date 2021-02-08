@@ -81,7 +81,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
 
         noticeview = view.findViewById(R.id.noticeview)
 
-        //textView 계속 흐르도록...,,
+        //textView(공지) 계속 흐르도록
         noticeview.setSelected( true );
 
 
@@ -90,45 +90,35 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             (activity as MainActivity).replaceFragment(Frag04())
         }
 
+
+        //firebase,firestore 접근
         fireEmail = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        //firestore 도전!!!!!!!!!
-        fireEmail = FirebaseAuth.getInstance()  //userInfo.storeUid = emailAuth?.uid
-        firestore = FirebaseFirestore.getInstance()
-
+        //현재 유저 uid 가져오기
         val store_uid = fireEmail?.uid
 
+        //회원정보 내용
         val docRef = firestore?.collection("member")?.document(store_uid.toString())
         docRef?.get()?.addOnSuccessListener {
+
+            //member객체에 회원정보 내용 저장 후 이름 띄우기
             val member = it.toObject(Member::class.java)
             userID.setText(member?.storeName)
 
-            /////////////공지!!!!!!!!!!!
+            //member객체에서 그룹코드 받아오기
+            val groupCode = member?.storeGroup
+
+        //    var groupInfo = group_m()
 
 
-            //객체 내용 띄우기
-
-            val phone = member?.storePhone
-
-            var groupInfo = group_m()
-
-
-            //member컬렉션에 일치하는 uid의 문서 객체로 가져오기
-            val docRef1 = firestore?.collection("group")?.document(phone.toString())
+            //그룹코드 통해서 공지 가져오기
+            val docRef1 = firestore?.collection("group")?.document(groupCode.toString())
             docRef1?.get()?.addOnSuccessListener {
                 val group_m = it.toObject(group_m::class.java)
                 noticeview.setText(group_m?.storeContent)
             }
         }
-
-
-
-
-
-
-
-
 
 
 

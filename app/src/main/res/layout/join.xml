@@ -33,7 +33,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvRegister"
-        android:backgroundTint="@color/brown_num1"/>
+        android:backgroundTint="@color/brown_num1"
+
+        />
 
 
     <EditText
@@ -79,12 +81,12 @@
         android:backgroundTint="@color/brown_num1"/>
 
     <EditText
-        android:id="@+id/PhoneNum"
+        android:id="@+id/GroupNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="436dp"
         android:ems="10"
-        android:hint="핸드폰 번호"
+        android:hint="그룹 코드 (7자리 이상)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

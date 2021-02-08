@@ -58,7 +58,7 @@ class cal_test : AppCompatActivity() {
                 //객체 내용 띄우기
 
                 val name = member?.storeName
-                val phone = member?.storePhone
+                val phone = member?.storeGroup
 
                 //firestore 저장
 
@@ -90,12 +90,12 @@ class cal_test : AppCompatActivity() {
 
                 //객체 내용 띄우기
 
-                val phone = member?.storePhone
+                val phone = member?.storeGroup
 
-                var groupInfo = group_m()
+          //      var groupInfo = group_m()
 
 
-                //member컬렉션에 일치하는 uid의 문서 객체로 가져오기
+                //그룹코드 통해서 공지 가져오기
                 val docRef1 = emailFirestore?.collection("group")?.document(phone.toString())
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
