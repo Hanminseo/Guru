@@ -171,23 +171,11 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         // 체크박스 클릭 시 프로그레스바 퍼센테이지 변경
         todoListView.setOnItemClickListener { parent, view, position, id ->
             onSettingProgress()
+            onSettingTodolist()
         }
 
         // 에디티 버튼 클릭 리스너
         listEdit.setOnClickListener {
-
-            // db에 리스트뷰 체크된 항목 여부 저장하기
-            checkedItems = todoListView.getCheckedItemPositions()
-            for (i in count - 1 downTo 0) {
-                sqlDB = dbManager.writableDatabase
-                // 모든 리스트 뷰의 체크 박스를 UNCHECKED로 초기화함
-                sqlDB.execSQL("UPDATE todolistTBL SET checked='UNCHECKED' WHERE item ='" + listItem.get(i) + "';")
-                // 체크된 리스트만 CHECKED로 수정
-                if (checkedItems.get(i)) {
-                    sqlDB.execSQL("UPDATE todolistTBL SET checked='CHECKED' WHERE item ='" + listItem.get(i) + "';")
-                }
-                sqlDB.close()
-            }
 
             // TodoList 편집 액티비티로 전환
             (activity as MainActivity).replaceFragment(TodoList2())
@@ -221,5 +209,28 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         }
         var percentInt = ((checkInt / count.toDouble())*100)
         circleProgressBar.setProgress(percentInt.toInt())
+    }
+
+    private fun onSettingTodolist() {
+        // db에 리스트뷰 체크된 항목 여부 저장하기
+        checkedItems = todoListView.getCheckedItemPositions()
+        for (i in count - 1 downTo 0) {
+            sqlDB = dbManager.writableDatabase
+            // 모든 리스트 뷰의 체크 박스를 UNCHECKED로 초기화함
+            sqlDB.execSQL(
+                "UPDATE todolistTBL SET checked='UNCHECKED' WHERE item ='" + listItem.get(
+                    i
+                ) + "';"
+            )
+            // 체크된 리스트만 CHECKED로 수정
+            if (checkedItems.get(i)) {
+                sqlDB.execSQL(
+                    "UPDATE todolistTBL SET checked='CHECKED' WHERE item ='" + listItem.get(
+                        i
+                    ) + "';"
+                )
+            }
+            sqlDB.close()
+        }
     }
 }

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,11 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -32,6 +36,7 @@ class Frag02 : Fragment() {
     lateinit var pgbar: ProgressBar
     lateinit var pgbarTv: TextView
     lateinit var totalTime: String
+    lateinit var datestring: TextView
     var timepick: String = ""
     var tHour: Int = 0
     var tMin: Int = 0
@@ -41,6 +46,7 @@ class Frag02 : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,10 +62,17 @@ class Frag02 : Fragment() {
         targetTimeBtn = view.findViewById(R.id.targetTimeBtn)
         pgbar = view.findViewById(R.id.pgbar)
         pgbarTv = view.findViewById(R.id.pgbarTv)
+        datestring = view.findViewById(R.id.dateTv)
 
         var timeList = ArrayList<Time>()
 
         dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
+
+        // 현재 날짜 로드
+        var now = LocalDate.now()
+
+        var Strnow = now.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
+        datestring.text = Strnow
 
         // 어댑터 생성
         mAdapter = RecyclerAdapter(requireContext(), timeList)
