@@ -44,7 +44,9 @@ class Join : AppCompatActivity() {
         btnOk.setOnClickListener{
             if(email.text.toString().length == 0 || password.text.toString().length ==0){
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
-            }else {
+            }
+
+            else {
                 auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
                     .addOnCompleteListener(this){ task ->
                         if(task.isSuccessful) {
