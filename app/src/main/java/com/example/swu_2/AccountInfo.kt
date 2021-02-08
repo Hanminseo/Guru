@@ -27,7 +27,7 @@ class AccountInfo : AppCompatActivity() {
 
         userName = findViewById(R.id.userName)
         userEmail = findViewById(R.id.userEmail)
-        groupNum = findViewById(R.id.GroupNum)
+        groupNum = findViewById(R.id.groupNum)
         birth = findViewById(R.id.birth)
 
         //계정 초기화
