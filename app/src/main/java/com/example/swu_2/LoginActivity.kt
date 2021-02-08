@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email.text.toString(),password.text.toString())
                     .addOnCompleteListener(this){ task ->
                         if(task.isSuccessful) {
-                            startActivity(Intent(this, Gonggi::class.java))
+                            startActivity(Intent(this, MainActivity::class.java))
                             finish()
 
                             Log.d(TAG, "signInWithEmail:success")
