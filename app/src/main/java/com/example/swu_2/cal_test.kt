@@ -64,7 +64,7 @@ class cal_test : AppCompatActivity() {
 
                 var groupInfo = group_m()
 
-                groupInfo.storeGroupname1 = t1.getText().toString()
+                groupInfo.storeContent = t1.getText().toString()
 
 
 
@@ -99,7 +99,7 @@ class cal_test : AppCompatActivity() {
                 val docRef1 = emailFirestore?.collection("group")?.document(phone.toString())
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
-                    t2.setText(group_m?.storeGroupname1)
+                    t2.setText(group_m?.storeContent)
                 }
 
 

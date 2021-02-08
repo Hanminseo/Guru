@@ -6,37 +6,47 @@
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="28dp"
+        android:layout_weight="2.8"
         android:orientation="vertical"
-        android:layout_weight="15">
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="공지 사항"
-            android:textSize="30dp"
             android:layout_gravity="center"
-            android:textColor="@color/brown_num2"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="110dp"
             android:paddingBottom="15dp"
-            >
-        </TextView>
+            android:text="공지 사항"
+            android:textColor="@color/brown_num2"
+            android:textSize="30dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:paddingBottom="15dp"
+            android:text="공지 내용"
+            android:textColor="@color/brown_num2"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="76dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/brown_round"
-            android:layout_weight="1"
-            android:textColor="@color/white_num1"
-            android:text="공지임니다"
-            android:textSize="20dp"
             android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:textStyle="bold"
+            android:paddingTop="25dp"
+            android:text="공지임니다"
             android:textAlignment="center"
-            android:id="@+id/noticelist">
-        </TextView>
+            android:textColor="@color/white_num1"
+            android:textSize="20dp"
+            android:id="@+id/notice_r"
+            android:textStyle="bold"></TextView>
 
     </LinearLayout>
 
@@ -48,56 +58,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="3">
+        android:layout_weight="0.7"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="30dp"
+            android:paddingBottom="15dp"
+            android:text="변경할 공지"
+            android:textColor="@color/brown_num2"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:hint="공지를 입력하세요"
-            android:paddingLeft="10dp"
-            android:background="@drawable/round"
+            android:layout_height="1dp"
+            android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:id="@+id/noticeedit">
-        </EditText>
+            android:background="@drawable/round"
+            android:hint="공지를 입력하세요"
+            android:id="@+id/notice_w"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"></EditText>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1">
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"></View>
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="저장"
-            android:id="@+id/savenotice"
-            android:background="#00ff0000"
-            android:tint="@color/brown_num1"
-            android:src="@drawable/ic_noun_plus_1727947"
-            android:scaleType="fitCenter"
-            android:gravity="bottom|right"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            >
-        </ImageButton>
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="삭제"
-            android:id="@+id/deletenotice"
-            android:background="#00ff0000"
-            android:tint="@color/brown_num1"
-            android:src="@drawable/ic_noun_minus_1727966"
-            android:scaleType="fitCenter"
-            android:gravity="bottom|right"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"/>
+        android:layout_weight="0.7">
+
+
+        <Button
+            android:id="@+id/btnNotice1"
+            android:layout_width="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:backgroundTint="@color/brown_num2"
+            android:text="현재 공지" />
+
+        <Button
+            android:id="@+id/btnNotice2"
+            android:layout_width="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/brown_num2"
+            android:textStyle="bold"
+            android:text="내용 저장" />
     </LinearLayout>
 
 </LinearLayout>

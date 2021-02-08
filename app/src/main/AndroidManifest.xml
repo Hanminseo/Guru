@@ -17,6 +17,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".cal_test" />
         <activity android:name=".Join" />
+        <activity android:name=".Gonggi" />
 
         <activity android:name=".Password" />
         <activity android:name=".SwuInfo" />
