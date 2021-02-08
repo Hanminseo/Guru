@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import com.example.swu_2.R.layout.activity_start_logo
+import java.util.jar.Manifest
 
 class StartLogo : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class StartLogo : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
 
             finish()
         }, SPLASH_TIME_OUT)

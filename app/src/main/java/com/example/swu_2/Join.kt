@@ -43,6 +43,8 @@ class Join : AppCompatActivity() {
         btnOk.setOnClickListener{
             if(email.text.toString().length == 0 || password.text.toString().length ==0){
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
+            }else if(phonenum.text.toString().length <= 6){
+                Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
             }
             else if(phonenum.text.toString().length <= 6){
                 Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()

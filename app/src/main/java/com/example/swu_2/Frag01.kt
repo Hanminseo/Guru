@@ -39,6 +39,8 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
     lateinit var layout_drawer : DrawerLayout
     lateinit var naviView : NavigationView
     lateinit var mAuth: FirebaseAuth
+
+    lateinit var noticeview : TextView
 /*
     //frag에서 뒤로가기 버튼
     private lateinit var callback: OnBackPressedCallback
@@ -77,6 +79,8 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         listItem = ArrayList<String>()
         layout_drawer = view.findViewById(R.id.layout_drawer)
 
+        noticeview = view.findViewById(R.id.noticeview)
+
 
         //caldendar 연결
         myCalendar.setOnClickListener {
@@ -96,7 +100,33 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         docRef?.get()?.addOnSuccessListener {
             val member = it.toObject(Member::class.java)
             userID.setText(member?.storeName)
+
+            /////////////공지!!!!!!!!!!!
+
+
+            //객체 내용 띄우기
+
+            val phone = member?.storePhone
+
+            var groupInfo = group_m()
+
+
+            //member컬렉션에 일치하는 uid의 문서 객체로 가져오기
+            val docRef1 = firestore?.collection("group")?.document(phone.toString())
+            docRef1?.get()?.addOnSuccessListener {
+                val group_m = it.toObject(group_m::class.java)
+                noticeview.setText(group_m?.storeContent)
+            }
         }
+
+
+
+
+
+
+
+
+
 
 
         circleProgressBar = view.findViewById(R.id.cpb_circlebar);
