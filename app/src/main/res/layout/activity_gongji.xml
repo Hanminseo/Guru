@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white_num1">
 
     <LinearLayout
@@ -20,33 +22,15 @@
             android:text="공지 사항"
             android:textColor="@color/brown_num2"
             android:textSize="30dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="30dp"
-            android:paddingBottom="15dp"
-            android:text="공지 내용"
-            android:textColor="@color/brown_num2"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/brown_round"
-            android:paddingLeft="10dp"
-            android:paddingTop="25dp"
-            android:text="공지임니다"
-            android:textAlignment="center"
-            android:textColor="@color/white_num1"
-            android:textSize="20dp"
-            android:id="@+id/notice_r"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"
+            ></TextView>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_noun_notice_2918258"
+            android:layout_gravity="center"
+            app:tint="@color/brown_num2">
+        </ImageView>
 
     </LinearLayout>
 
@@ -62,24 +46,28 @@
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="30dp"
-            android:paddingBottom="15dp"
-            android:text="변경할 공지"
-            android:textColor="@color/brown_num2"
+            android:background="@drawable/brown_round"
+            android:paddingLeft="10dp"
+            android:paddingTop="25dp"
+            android:hint="공지 내용"
+            android:textAlignment="center"
+            android:textColor="@color/white_num1"
             android:textSize="20dp"
-            android:textStyle="bold"></TextView>
+            android:id="@+id/notice_r"
+            android:textStyle="bold"
+            ></TextView>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:background="@drawable/round"
             android:hint="공지를 입력하세요"
+            android:textAlignment="center"
             android:id="@+id/notice_w"
             android:paddingLeft="10dp"
             android:textSize="20dp"></EditText>
@@ -102,7 +90,7 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:backgroundTint="@color/brown_num2"
-            android:text="현재 공지" />
+            android:text="불러오기" />
 
         <Button
             android:id="@+id/btnNotice2"
@@ -114,7 +102,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/brown_num2"
             android:textStyle="bold"
-            android:text="내용 저장" />
+            android:text="저장하기" />
     </LinearLayout>
 
 </LinearLayout>
