@@ -17,6 +17,7 @@ import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
@@ -98,7 +99,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.logout -> {
                 //drawer 메뉴 로그아웃
-                FirebaseAuth.getInstance().signOut();
+                FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "로그아웃 완료", Toast.LENGTH_SHORT).show()
@@ -107,11 +108,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.delete -> {
                 //drawer 메뉴 회원 탈퇴
-                mAuth = FirebaseAuth.getInstance();
-                mAuth.getCurrentUser()?.delete();
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(applicationContext, "계정삭제 완료", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().currentUser!!.delete().addOnCompleteListener{ task->
+                    if(task.isSuccessful){
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        Toast.makeText(applicationContext, "계정삭제 완료", Toast.LENGTH_SHORT).show()
+
+                    }else{
+                        Toast.makeText( this,task.exception.toString(),Toast.LENGTH_LONG).show()
+                    }
+                }
 
             }
 
