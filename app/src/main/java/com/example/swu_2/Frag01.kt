@@ -82,6 +82,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         todoListView = view.findViewById(R.id.todoListView)
         listItem = ArrayList<String>()
         layout_drawer = view.findViewById(R.id.layout_drawer)
+        dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
 
         noticeview = view.findViewById(R.id.noticeview)
 
@@ -90,10 +91,9 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
 
         //캘린더 동그라미 표시
         myCalendar.setSelectedDate(CalendarDay.today())
-        myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
+        onSettingCalDot()
 
-
-       //캘린더뷰
+        //캘린더뷰
         myCalendar.setOnDateChangedListener { widget, date, selected ->
             val year = date.year
             val month = date.month
@@ -150,7 +150,6 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         todoListView.setAdapter(adapter)
 
         // db에서 리스트뷰 데이터 로드
-        dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
         sqlDB = dbManager.readableDatabase
 
         var cursor: Cursor
@@ -239,6 +238,25 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             sqlDB.close()
         }
     }
+    // 달력에 일정 표시하기
+    private fun onSettingCalDot() {
+        sqlDB = dbManager.readableDatabase
+        var cursor: Cursor
+        // calTBL 테이블에 있는 모든 행의 date를 가져와서 달력에 점을 표시함
+        cursor = sqlDB.rawQuery("SELECT date FROM calTBL;", null)
+        while (cursor.moveToNext()) {
+            val selDate = cursor.getString(0)
+            val selY = selDate.substring(0, 4).toInt()
+            val selM = selDate.substring(5, 7).toInt() - 1
+            val selD = selDate.substring(8, 10).toInt()
+            // 점 표시
+            myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.from(selY, selM, selD))))
+        }
+        cursor.close()
+        sqlDB.close()
+
+    }
+
 }
 
 
