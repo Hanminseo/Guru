@@ -15,7 +15,7 @@
 
         <activity android:name=".Website" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".cal_test" />
+        <activity android:name=".NoticeBoard" />
         <activity android:name=".Join" />
         <activity android:name=".Gonggi" />
 

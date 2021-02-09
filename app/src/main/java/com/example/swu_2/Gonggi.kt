@@ -1,11 +1,9 @@
 package com.example.swu_2
 
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +22,9 @@ class Gonggi : AppCompatActivity() {
     lateinit var btnNotice2 : Button
     lateinit var gonggi_home: ImageButton
 
+    lateinit var dbManager: DBManager
+    lateinit var sqlDB: SQLiteDatabase
+    lateinit var noticeBtn: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,9 @@ class Gonggi : AppCompatActivity() {
         //firestore
         emailAuth = FirebaseAuth.getInstance()
         emailFirestore = FirebaseFirestore.getInstance()
+
+        dbManager = DBManager(this, "itemDB", null, 1)
+        noticeBtn = findViewById(R.id.noticeBtn)
 
 
         //사용자가 입력한 값
@@ -98,15 +102,23 @@ class Gonggi : AppCompatActivity() {
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
                     notice_r.setText(group_m?.storeName+ " : " + group_m?.storeContent)
+
                     // 리스트에 추가
+                    sqlDB = dbManager.writableDatabase
+                    if(group_m?.storeContent.toString() != "") {
+                        sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('"+notice_r.text.toString()+"');")
+                    }
+                    println("여ㅕ기여"+group_m?.storeName.toString()+group_m?.storeContent.toString())
+                    sqlDB.close()
+
                 }
 
-
-
-
-
-
             }
+        }
+
+        noticeBtn.setOnClickListener {
+            var intent = Intent(this, NoticeBoard::class.java)
+            startActivity(intent)
         }
 
         gonggi_home.setOnClickListener{
