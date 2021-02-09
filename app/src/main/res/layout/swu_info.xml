@@ -18,20 +18,20 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="114dp"
+        android:layout_height="108dp"
         android:layout_gravity="center"
+        android:layout_margin="50dp"
         android:baselineAligned="false"
-        android:src="@drawable/logo"
-        android:layout_margin="30dp"></ImageView>
+        android:src="@drawable/logo"></ImageView>
 
     <TextView
         android:id="@+id/infoHyeJin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="90dp"
-        android:text="서울여자대학교 최강 두뇌 한혜진"
+        android:layout_marginTop="20dp"
+        android:text="서울여자대학교 최강 데이터베이스 손현지"
         android:textColor="@color/brown_num2"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="서울여자대학교 최강 데이터베이스 손현지"
+        android:text="서울여자대학교 최강 수정 이소정"
         android:textColor="@color/brown_num2"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="서울여자대학교 최강 수정 이소정"
+        android:text="서울여자대학교 최강 파워포인트 한민서"
         android:textColor="@color/brown_num2"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="서울여자대학교 최강 파워포인트 한민서"
+        android:text="서울여자대학교 최강 두뇌 한혜진"
         android:textColor="@color/brown_num2"
         android:textSize="20dp"
         android:textStyle="bold" />
