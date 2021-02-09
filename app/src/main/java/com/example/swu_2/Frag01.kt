@@ -3,6 +3,7 @@ package com.example.swu_2
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.os.Bundle
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
@@ -250,7 +251,8 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             val selM = selDate.substring(5, 7).toInt() - 1
             val selD = selDate.substring(8, 10).toInt()
             // 점 표시+ 점 색이 이상해~
-            myCalendar.addDecorator(EventDecorator(R.color.pink_num2,
+            myCalendar.addDecorator(EventDecorator(
+                Color.parseColor("#F093BD"),
                 Collections.singleton(CalendarDay.from(selY, selM, selD))))
         }
         cursor.close()

@@ -66,7 +66,7 @@ class Gonggi : AppCompatActivity() {
                 var groupInfo = group_m()
 
                 groupInfo.storeContent = notice_w.getText().toString()
-
+                groupInfo.storeName = name
 
 
                 emailFirestore?.collection("group")?.document(phone.toString())?.set(groupInfo)
@@ -88,16 +88,16 @@ class Gonggi : AppCompatActivity() {
 
                 //객체 내용 띄우기
 
-                val phone = member?.storeGroup
+                val group_code = member?.storeGroup
 
                 var groupInfo = group_m()
 
 
                 //member컬렉션에 일치하는 uid의 문서 객체로 가져오기
-                val docRef1 = emailFirestore?.collection("group")?.document(phone.toString())
+                val docRef1 = emailFirestore?.collection("group")?.document(group_code.toString())
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
-                    notice_r.setText(group_m?.storeContent)
+                    notice_r.setText(group_m?.storeName+ " : " + group_m?.storeContent)
                     // 리스트에 추가
                 }
 
