@@ -141,7 +141,7 @@
                             android:id="@+id/cpb_circlebar"
                             android:layout_width="135dp"
                             android:layout_height="135dp"
-                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
