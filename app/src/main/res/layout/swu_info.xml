@@ -18,8 +18,8 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:layout_width="114dp"
-        android:layout_height="108dp"
+        android:layout_width="141dp"
+        android:layout_height="96dp"
         android:layout_gravity="center"
         android:layout_margin="50dp"
         android:baselineAligned="false"
