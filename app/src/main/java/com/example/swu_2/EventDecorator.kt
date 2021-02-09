@@ -19,3 +19,4 @@ class EventDecorator(color:Int, dates:Collection<CalendarDay>): DayViewDecorator
         view.addSpan(DotSpan(5F, color))
     }
 }
+

@@ -5,11 +5,13 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.os.Bundle
+import android.text.style.ForegroundColorSpan
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -104,7 +106,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
             sqlDB.close()
             (activity as MainActivity).replaceFragment(Frag04())
-            myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
+            //myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
         }
 
         //firebase,firestore 접근
@@ -135,7 +137,6 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
                 noticeview.setText(group_m?.storeContent)
             }
         }
-
 
 
         circleProgressBar = view.findViewById(R.id.cpb_circlebar);
@@ -249,8 +250,9 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             val selY = selDate.substring(0, 4).toInt()
             val selM = selDate.substring(5, 7).toInt() - 1
             val selD = selDate.substring(8, 10).toInt()
-            // 점 표시
-            myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.from(selY, selM, selD))))
+            // 점 표시+ 점 색이 이상해~
+            myCalendar.addDecorator(EventDecorator(R.color.purple_200,
+                Collections.singleton(CalendarDay.from(selY, selM, selD))))
         }
         cursor.close()
         sqlDB.close()
