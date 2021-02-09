@@ -3,6 +3,7 @@ package com.example.swu_2
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.os.Bundle
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
@@ -15,7 +16,10 @@ import androidx.fragment.app.FragmentTransaction
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.collection.LLRBNode
 import com.google.firebase.firestore.FirebaseFirestore
+import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import java.util.*
 
 class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
@@ -31,7 +35,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
     lateinit var userID: TextView
     lateinit var userIDcheck: TextView
     lateinit var userPage: ImageButton
-    lateinit var myCalendar: CalendarView
+    lateinit var myCalendar: MaterialCalendarView
     lateinit var listEdit: ImageButton
     lateinit var todoListView: ListView
     lateinit var adapter: ArrayAdapter<String>
@@ -84,18 +88,24 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         //textView(공지) 계속 흐르도록
         noticeview.setSelected( true );
 
+        //캘린더 동그라미 표시
+        myCalendar.setSelectedDate(CalendarDay.today())
+        myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
 
-        //caldendar 날짜 클릭 리스너
-        myCalendar.setOnDateChangeListener { view, year, month, day ->
+
+       //캘린더뷰
+        myCalendar.setOnDateChangedListener { widget, date, selected ->
+            val year = date.year
+            val month = date.month
+            val day = date.day
             var strDay = String.format("%d.%02d.%02d", year, month+1, day)
             sqlDB = dbManager.writableDatabase
             // 마지막 쿼리 '1'은 선택 여부를 의미/ '1'은 선택,'0'은 미선택(default)
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
             sqlDB.close()
             (activity as MainActivity).replaceFragment(Frag04())
-
+            myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
         }
-
 
         //firebase,firestore 접근
         fireEmail = FirebaseAuth.getInstance()
@@ -230,3 +240,5 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         }
     }
 }
+
+

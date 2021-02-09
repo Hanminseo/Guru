@@ -119,10 +119,13 @@
                         android:layout_weight="5"
                         android:orientation="vertical">
 
-                        <CalendarView
+                        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                             android:id="@+id/myCalendar"
                             android:layout_width="match_parent"
-                            android:layout_height="295dp"></CalendarView>
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            app:mcv_selectionColor="@color/brown_num1"
+                            app:mcv_showOtherDates="none"></com.prolificinteractive.materialcalendarview.MaterialCalendarView>
 
                     </LinearLayout>
 
