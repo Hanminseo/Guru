@@ -41,19 +41,19 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp">
 
+
                         <ImageButton
                             android:id="@+id/userPage"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="6dp"
                             android:adjustViewBounds="true"
                             android:backgroundTint="@color/white"
                             android:padding="0dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/ic_noun_person_2024959"
-                            android:tint="@color/brown_num1"
-                            android:layout_marginLeft="6dp"></ImageButton>
-
+                            android:tint="@color/brown_num1"></ImageButton>
 
                         <TextView
                             android:id="@+id/userID"
@@ -88,23 +88,22 @@
                             android:paddingLeft="10dp"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/noticeview"
+                            android:layout_width="358dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/round"
-                            android:textColor="@color/brown_num2"
                             android:ellipsize="marquee"
-                            android:marqueeRepeatLimit="marquee_forever"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="20dp"
-                            android:textStyle="bold"
-                            android:text=""
-                            android:textSize="18dp"
-                            android:singleLine="true"
-                            android:id="@+id/noticeview"
+                            android:marqueeRepeatLimit="marquee_forever"
                             android:padding="5dp"
-                            android:textAlignment="center">
-                        </TextView>
+                            android:paddingLeft="20dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/brown_num2"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -112,7 +111,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="300dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="5"
                         android:orientation="vertical">
@@ -120,17 +119,23 @@
                         <CalendarView
                             android:id="@+id/myCalendar"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"></CalendarView>
+                            android:layout_height="295dp"></CalendarView>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"></View>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="210dp"
                         android:layout_weight="2"
                         android:orientation="horizontal"
                         android:padding="10dp">
 
                         // 체크 리스트
+
 
                         <com.dinuscxj.progressbar.CircleProgressBar
                             android:id="@+id/cpb_circlebar"
@@ -148,7 +153,6 @@
                             app:progress_text_color="@color/brown_num1"
                             app:progress_text_size="30dp"
                             app:style="solid_line" />
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -168,11 +172,6 @@
                                     android:textColor="@color/brown_num1"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"></View>
 
                                 <ImageButton
                                     android:id="@+id/listEdit"
