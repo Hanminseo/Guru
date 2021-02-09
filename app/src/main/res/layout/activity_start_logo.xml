@@ -11,22 +11,21 @@
         android:id="@+id/ivLogo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="250dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/study_with_u"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo2"
-        android:contentDescription="@string/study_with_u" />
+        app:srcCompat="@drawable/logo2" />
 
     <TextView
         android:id="@+id/tvSwu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
         android:text="@string/swu"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/brown_num1"
