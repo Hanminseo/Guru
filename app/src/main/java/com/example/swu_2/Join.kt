@@ -35,56 +35,65 @@ class Join : AppCompatActivity() {
         val btnOk = findViewById<Button>(R.id.btnOk)
         val name = findViewById<EditText>(R.id.Name)
         val birthday = findViewById<EditText>(R.id.Birthday)
-        val groupnum= findViewById<EditText>(R.id.GroupNum)
+        val groupnum = findViewById<EditText>(R.id.GroupNum)
 
         //계정만들기
-        btnOk.setOnClickListener{
+        btnOk.setOnClickListener {
 
             //email,password 공백시 오류
-            if(email.text.toString().length == 0 || password.text.toString().length ==0){
+            if (email.text.toString().length == 0 || password.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
             }
             //그룹코드 6자리 이하 입력시 오류
-            else if(groupnum.text.toString().length <= 6){
+            else if (groupnum.text.toString().length <= 6) {
                 Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
             }
             //그외 firebase에 저장
             else {
-                auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
-                    .addOnCompleteListener(this){ task ->
-                        if(task.isSuccessful) {
+                auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
                             Log.d(TAG, "createUserWithEmail:success")
                             finish()
 
                             //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
-                            if(true){
+                            if (true) {
                                 var userInfo = Member() //회원정보 저장 객체
-                                var groupInfo  = group_m() //공지내용 저장 객체
+                                var groupInfo = group_m() //공지내용 저장 객체
 
                                 //회원정보 객체에 저장
                                 userInfo.storeUid = emailAuth?.uid
-                                userInfo.storeEmail=emailAuth?.currentUser?.email
-                                userInfo.storeBirth=birthday.getText().toString()
-                                userInfo.storeName=name.getText().toString()
-                                userInfo.storeGroup=groupnum.getText().toString()
-
-                                groupInfo.storeContent="null"
+                                userInfo.storeEmail = emailAuth?.currentUser?.email
+                                userInfo.storeBirth = birthday.getText().toString()
+                                userInfo.storeName = name.getText().toString()
+                                userInfo.storeGroup = groupnum.getText().toString()
 
                                 //객체내용 firestore에 저장
                                 emailFirestore?.collection("member")?.document(emailAuth?.uid.toString())?.set(userInfo)
-                                //그룹코드 문서생성
-                                emailFirestore?.collection("group")?.document(groupnum.getText().toString())?.set(groupInfo)
+
+                                val docRef = emailFirestore?.collection("group")?.document(groupnum.getText().toString())
+                                docRef?.get()?.addOnSuccessListener { document ->
+                                    if (document == null) {
+                                        groupInfo.storeContent = "hello"
+                                        emailFirestore?.collection("group")
+                                            ?.document(groupnum.getText().toString())
+                                            ?.set(groupInfo)
+                                    }
+
+                                }
+
+
+                            } else {
+                                Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                                Toast.makeText(
+                                    baseContext, "Authentication failed.", Toast.LENGTH_SHORT
+                                ).show()
+
+                                email?.setText("")
+                                password?.setText("")
+                                email.requestFocus()
+
                             }
-
-                        }else{
-                            Log.w(TAG,"createUserWithEmail:failure", task.exception)
-                            Toast.makeText(
-                                baseContext,"Authentication failed.",Toast.LENGTH_SHORT).show()
-
-                            email?.setText("")
-                            password?.setText("")
-                            email.requestFocus()
-
                         }
                     }
             }
