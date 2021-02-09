@@ -71,16 +71,16 @@ class Join : AppCompatActivity() {
                                 //객체내용 firestore에 저장
                                 emailFirestore?.collection("member")?.document(emailAuth?.uid.toString())?.set(userInfo)
 
-                                val docRef = emailFirestore?.collection("group")?.document(groupnum.getText().toString())
-                                docRef?.get()?.addOnSuccessListener { document ->
-                                    if (document == null) {
-                                        groupInfo.storeContent = "hello"
-                                        emailFirestore?.collection("group")
-                                            ?.document(groupnum.getText().toString())
-                                            ?.set(groupInfo)
-                                    }
-
-                                }
+//                                val docRef = emailFirestore?.collection("group")?.document(groupnum.getText().toString())
+//                                docRef?.get()?.addOnSuccessListener { document ->
+//                                    if (document == null) {
+//                                        groupInfo.storeContent = "hello"
+//                                        emailFirestore?.collection("group")
+//                                            ?.document(groupnum.getText().toString())
+//                                            ?.set(groupInfo)
+//                                    }
+//
+//                                }
 
 
                             } else {
