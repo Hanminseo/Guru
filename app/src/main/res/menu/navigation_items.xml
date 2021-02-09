@@ -7,10 +7,10 @@
         android:title="홈" />
     <item
         android:id="@+id/nav_timer"
-        android:icon="@drawable/ic_noun_timer_3704373"
+        android:icon="@drawable/ic_noun_timer_2513124"
         android:title="타이머" />
     <item
         android:id="@+id/nav_web"
-        android:icon="@drawable/ic_noun_globe_2988260"
+        android:icon="@drawable/ic_noun_globe_3491290"
         android:title="웹" />
 </menu>

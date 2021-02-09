@@ -140,11 +140,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_margin="5dp"
         android:layout_weight="1"
         android:backgroundTint="@color/brown_num1"
         android:clickable="true"
         android:src="@drawable/ic_noun_plus_1727947"
-        app:backgroundTint="#00FFFFFF" />
+        app:backgroundTint="#00FFFFFF"
+        android:layout_marginBottom="20dp"/>
 
 </FrameLayout>

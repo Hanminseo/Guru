@@ -20,7 +20,7 @@
             android:title="개발자 정보"/>
 
         <item android:id="@+id/gongji"
-            android:icon="@drawable/ic_noun_notice_2918258"
+            android:icon="@drawable/ic_noun_speaker_508412"
             android:title="전체 공지"/>
 
     </group>
