@@ -2,15 +2,13 @@ package com.example.swu_2
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import javax.microedition.khronos.egl.EGLDisplay
 
 class Gonggi : AppCompatActivity() {
 
@@ -24,6 +22,7 @@ class Gonggi : AppCompatActivity() {
     lateinit var notice_r: TextView //출력
     lateinit var btnNotice1 : Button //버튼
     lateinit var btnNotice2 : Button
+    lateinit var gonggi_home: ImageButton
 
 
 
@@ -44,6 +43,7 @@ class Gonggi : AppCompatActivity() {
         val notice_r = findViewById<TextView>(R.id.notice_r)
         val btnNotice1 = findViewById<Button>(R.id.btnNotice1)
         val btnNotice2 = findViewById<Button>(R.id.btnNotice2)
+        val gonggi_home = findViewById<ImageButton>(R.id.g_home)
 
 
         btnNotice2.setOnClickListener {
@@ -107,6 +107,13 @@ class Gonggi : AppCompatActivity() {
 
 
             }
+        }
+
+        gonggi_home.setOnClickListener{
+
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+
         }
     }
 

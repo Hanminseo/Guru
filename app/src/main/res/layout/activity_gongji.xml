@@ -20,7 +20,8 @@
             android:backgroundTint="#00ff0000"
             android:tint="@color/brown_num2"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"></ImageButton>
+            android:layout_marginRight="20dp"
+            android:id="@+id/g_home"></ImageButton>
 
     </LinearLayout>
     <LinearLayout
