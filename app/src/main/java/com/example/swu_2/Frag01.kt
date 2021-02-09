@@ -3,22 +3,21 @@ package com.example.swu_2
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.graphics.Color
 import android.os.Bundle
-import android.text.style.ForegroundColorSpan
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.core.content.ContextCompat
+import android.widget.ArrayAdapter
+import android.widget.ImageButton
+import android.widget.ListView
+import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.collection.LLRBNode
 import com.google.firebase.firestore.FirebaseFirestore
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -251,7 +250,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             val selM = selDate.substring(5, 7).toInt() - 1
             val selD = selDate.substring(8, 10).toInt()
             // 점 표시+ 점 색이 이상해~
-            myCalendar.addDecorator(EventDecorator(R.color.purple_200,
+            myCalendar.addDecorator(EventDecorator(R.color.pink_num2,
                 Collections.singleton(CalendarDay.from(selY, selM, selD))))
         }
         cursor.close()
