@@ -97,11 +97,11 @@ class Frag02 : Fragment() {
                 tMin += Integer.parseInt(getTimeString.substring(5, 7))
                 tSec += Integer.parseInt(getTimeString.substring(10, 12))
             }
-            onSettingProgress()
         }
         cursor.close()
         sqlDB.close()
         mAdapter.notifyDataSetChanged()
+        onSettingProgress()
 
         // 총 공부량 합산 보이기
         tMin += (tSec / 60)
@@ -177,8 +177,9 @@ class Frag02 : Fragment() {
     private fun onSettingProgress() {
 
         if (targetTime.text != "") {
-            var total = (tHour * 60 + tMin).toDouble()
-            var target = (targetTime.text.substring(0, 2).toDouble()) * 60 + targetTime.text.substring(5, 7).toDouble()
+            var total = (tHour * 3600 + tMin*60 + tSec).toDouble()
+            var target = (targetTime.text.substring(0, 2).toDouble() * 3600
+                    + targetTime.text.substring(5, 7).toDouble()*60).toDouble()
 
             if (target != 0.0) {
                 var prog = (total / target) * 100
