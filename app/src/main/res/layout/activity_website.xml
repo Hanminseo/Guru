@@ -7,74 +7,98 @@
     android:backgroundTint="@color/white_num1">
 
 
-    <ImageButton
-        android:id="@+id/allcon"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
-        android:layout_height="205dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/allcontest"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/wevity"
-        app:layout_constraintEnd_toStartOf="@+id/linkareer"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="158dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/allocontests" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-    <ImageButton
-        android:id="@+id/specup"
+        <ImageButton
+            android:id="@+id/allcon"
+            android:layout_width="wrap_content"
+            android:layout_height="205dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/allcontest"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/wevity"
+            app:layout_constraintEnd_toStartOf="@+id/linkareer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/allocontests" />
+
+        <ImageButton
+            android:id="@+id/linkareer"
+            android:layout_width="wrap_content"
+            android:layout_height="205dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/linkareer"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/specup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/allcon"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/linkareer" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="205dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="40dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/specup"
-        android:scaleType="fitCenter"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/wevity"
-        app:layout_constraintTop_toBottomOf="@+id/linkareer"
-        app:srcCompat="@drawable/spaceup" />
-
-    <ImageButton
-        android:id="@+id/wevity"
-        android:layout_width="wrap_content"
-        android:layout_height="205dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="40dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/wevity"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/specup"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allcon"
-        app:srcCompat="@drawable/wevity" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-    <ImageButton
-        android:id="@+id/linkareer"
-        android:layout_width="wrap_content"
-        android:layout_height="205dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/linkareer"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/specup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/allcon"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/linkareer" />
+        <ImageButton
+            android:id="@+id/wevity"
+            android:layout_width="wrap_content"
+            android:layout_height="205dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="40dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/wevity"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:srcCompat="@drawable/wevity" />
+
+        <ImageButton
+            android:id="@+id/specup"
+            android:layout_width="wrap_content"
+            android:layout_height="205dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="40dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/specup"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:srcCompat="@drawable/spaceup" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView2"
