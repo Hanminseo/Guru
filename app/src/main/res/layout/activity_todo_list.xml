@@ -24,7 +24,6 @@
                 android:id="@+id/editBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:backgroundTint="@color/white_num1"
                 android:tint="@color/brown_num1"
                 app:srcCompat="@drawable/ic_noun_edit_3629720" />
@@ -39,7 +38,7 @@
 
             <ImageButton
                 android:id="@+id/listPlus"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="3dp"
                 android:adjustViewBounds="true"
@@ -51,7 +50,7 @@
 
             <ImageButton
                 android:id="@+id/listDelete"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="3dp"
                 android:adjustViewBounds="true"
