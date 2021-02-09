@@ -72,9 +72,6 @@ class Gonggi : AppCompatActivity() {
                 emailFirestore?.collection("group")?.document(phone.toString())?.set(groupInfo)
 
 
-
-
-
             }
 
         }
@@ -101,6 +98,7 @@ class Gonggi : AppCompatActivity() {
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
                     notice_r.setText(group_m?.storeContent)
+                    // 리스트에 추가
                 }
 
 

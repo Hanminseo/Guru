@@ -20,11 +20,10 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/boardlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/round2"
-        android:padding="35dp"
-        />
+        android:padding="20dp" />
 </LinearLayout>
