@@ -55,6 +55,10 @@ class Join : AppCompatActivity() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "createUserWithEmail:success")
                             finish()
+                            Toast.makeText(
+                                this, "회원가입 완료", Toast.LENGTH_SHORT
+                            ).show()
+
 
 
                             //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
