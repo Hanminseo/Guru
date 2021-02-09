@@ -56,6 +56,7 @@ class Join : AppCompatActivity() {
                             Log.d(TAG, "createUserWithEmail:success")
                             finish()
 
+
                             //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
                             if (true) {
                                 var userInfo = Member() //회원정보 저장 객체

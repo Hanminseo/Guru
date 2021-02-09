@@ -1,6 +1,7 @@
 package com.example.swu_2
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -33,6 +34,8 @@ class Password : AppCompatActivity() {
                         if (task.isSuccessful) {
                             //인증시 해당 이메일로 비밀번호 변경 메일 전송
                             Toast.makeText(this, "메일을 전송했습니다", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this, LoginActivity::class.java))
+                            finish()
                         } else {
                             //인증실패시 오류메세지
                             Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
