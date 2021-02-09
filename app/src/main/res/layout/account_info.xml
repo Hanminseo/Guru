@@ -56,64 +56,162 @@
         android:layout_weight="1"
         android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/userName"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/brown_num2"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myAccount"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_gravity="center"
-            android:layout_marginTop="24dp"/>
+            >
 
-        <TextView
-            android:id="@+id/userEmail"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이름 : "
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"
+                android:layout_gravity="center"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="24dp"
-            android:text="swu@gmail.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/brown_num2"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userName"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            >
 
-        <TextView
-            android:id="@+id/groupNum"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="메일 : "
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"
+                android:layout_gravity="center"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/userEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="swu@gmail.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userName"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="24dp"
-            android:text="010-0000-0000"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/brown_num2"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userEmail"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            >
 
-        <TextView
-            android:id="@+id/birth"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전화 번호 : "
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"
+                android:layout_gravity="center"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/groupNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="010-0000-0000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userEmail"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="24dp"
-            android:text="00/01/15"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/brown_num2"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/groupNum"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="생일 : "
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"
+                android:layout_gravity="center"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00/01/15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/brown_num2"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/groupNum"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/pswdbtn"
