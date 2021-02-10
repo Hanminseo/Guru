@@ -141,26 +141,28 @@
                         android:orientation="horizontal"
                         android:padding="10dp">
 
-                        // 체크 리스트
-
-
-                        <com.dinuscxj.progressbar.CircleProgressBar
+                        // 프로그레스바
+                        <com.ramijemli.percentagechartview.PercentageChartView
                             android:id="@+id/cpb_circlebar"
                             android:layout_width="135dp"
                             android:layout_height="135dp"
+                            app:pcv_mode="ring"
                             android:layout_gravity="center"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:progress_end_color="#FACCD2"
-                            app:progress_start_color="@color/pink_num1"
-                            app:progress_stroke_cap="round"
-                            app:progress_stroke_width="13dp "
-                            app:progress_text_color="@color/brown_num1"
-                            app:progress_text_size="30dp"
-                            app:style="solid_line"
-                            android:layout_marginTop="20dp"/>
+                            app:pcv_orientation="counter_clockwise"
+                            app:pcv_textColor="@color/brown_num2"
+                            app:pcv_textShadowColor="@color/black"
+                            app:pcv_textShadowDistX="3.0"
+                            app:pcv_backgroundBarColor="#25997E75"
+                            app:pcv_progressColor="#FFBEC7"
+                            app:pcv_animDuration="800"
+                            app:pcv_animInterpolator="anticipate_overshoot"
+                            app:pcv_progress="10"
+                            app:pcv_startAngle="90"/>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"

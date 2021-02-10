@@ -1,5 +1,6 @@
 package com.example.swu_2
 
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -22,9 +24,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import com.ramijemli.percentagechartview.PercentageChartView
 import java.util.*
 
-class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
+class Frag01 : Fragment(){
 
     // DB에서 리스트 정보 로드하는 변수
     lateinit var dbManager: DBManager
@@ -55,7 +58,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
-    lateinit var circleProgressBar: CircleProgressBar
+    lateinit var circleProgressBar: PercentageChartView
     var count: Int = 0
 
     //firebase,db 연결
@@ -149,7 +152,6 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
                         var getNotice = cursor.getString(0)
                         var idx = getNotice.indexOf(":")
                         var getNotice_idx = getNotice.substring(idx+2)
-                        println("여ㅕ기여2>" + group_m?.storeContent.toString()+'/'+getNotice_idx)
 
                         // 이미 디비에 담긴 공지는 제외하고 디비에 넣음
                         if (group_m?.storeContent.toString()== getNotice_idx) {
@@ -225,12 +227,6 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         return view
     }
 
-    override fun format(progress: Int, max: Int): CharSequence? {
-        return String.format(
-            DEFAULT_PATTERN,
-            (progress.toFloat() / max.toFloat() * 100).toInt()
-        )
-    }
 
     private fun onSettingProgress() {
         var checkInt = 0.0
@@ -242,7 +238,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
             }
         }
         var percentInt = ((checkInt / count.toDouble())*100)
-        circleProgressBar.setProgress(percentInt.toInt())
+        circleProgressBar.setProgress(percentInt.toFloat(), true)
     }
 
     private fun onSettingTodolist() {
@@ -287,6 +283,29 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         sqlDB.close()
 
     }
+
+    //frag에서 뒤로가기 버튼 누르면 로그인화면 으로 이동
+    private lateinit var callback: OnBackPressedCallback
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                (activity as MainActivity).replaceFragment(Frag01())
+                //var intent = Intent(context?.applicationContext, MainActivity::class.java)
+                //startActivity(intent)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
+    }
+
 
 }
 

@@ -4,10 +4,12 @@ import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -87,7 +89,7 @@ class Frag02 : Fragment() {
             var getSubjectString = cursor.getString(0)
             var getTimeString = cursor.getString(1)
             // 목표 시간을 정한 경우에만 목표시간을 text로 전달하기
-            if(cursor.getString(2) != "0"){
+            if (cursor.getString(2) != "0") {
                 targetTime.text = cursor.getString(2)
             }
             // 공부 시간이 0으로 저장된 항목을 제외하고 리스트에 추가
@@ -127,29 +129,29 @@ class Frag02 : Fragment() {
         // targetTimeBtn 버튼 클릭 시 목표 시간 셋팅할 수 있는 스피너 생성
         targetTimeBtn.setOnClickListener {
 
-                var listener = TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
-                    timepick = String.format("%02d시간 %02d분", i, i2)
-                    targetTime.text = timepick
-                    sqlDB = dbManager.writableDatabase
-                    // 모든 리스트 뷰의 체크 박스를 UNCHECKED로 초기화함
-                    sqlDB.execSQL("INSERT INTO stopwatchTBL VALUES ('', '00 : 00 : 00', '"+timepick+"');")
-                    sqlDB.close()
-                    onSettingProgress()
-                }
-
-                val dialog = TimePickerDialog(
-                    activity,
-                    android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
-                    listener,
-                    0,
-                    0,
-                    true
-                )
-
-                dialog.setTitle(" 목표 시간 설정하기 ")
-                dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-                dialog.show()
+            var listener = TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
+                timepick = String.format("%02d시간 %02d분", i, i2)
+                targetTime.text = timepick
+                sqlDB = dbManager.writableDatabase
+                // 모든 리스트 뷰의 체크 박스를 UNCHECKED로 초기화함
+                sqlDB.execSQL("INSERT INTO stopwatchTBL VALUES ('', '00 : 00 : 00', '" + timepick + "');")
+                sqlDB.close()
+                onSettingProgress()
             }
+
+            val dialog = TimePickerDialog(
+                activity,
+                android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
+                listener,
+                0,
+                0,
+                true
+            )
+
+            dialog.setTitle(" 목표 시간 설정하기 ")
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.show()
+        }
 
         return view
     }
@@ -177,14 +179,16 @@ class Frag02 : Fragment() {
     private fun onSettingProgress() {
 
         if (targetTime.text != "") {
-            var total = (tHour * 3600 + tMin*60 + tSec).toDouble()
+            var total = (tHour * 3600 + tMin * 60 + tSec).toDouble()
             var target = (targetTime.text.substring(0, 2).toDouble() * 3600
-                    + targetTime.text.substring(5, 7).toDouble()*60).toDouble()
+                    + targetTime.text.substring(5, 7).toDouble() * 60).toDouble()
 
             if (target != 0.0) {
                 var prog = (total / target) * 100
                 var percent = prog.toInt()
+
                 pgbar.setProgress(percent)
+
                 if (percent >= 100) {
                     percent = 100
                 }

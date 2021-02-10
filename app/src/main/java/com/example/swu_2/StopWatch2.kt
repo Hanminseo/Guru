@@ -108,6 +108,7 @@ class StopWatch2 : Fragment() {
 
     //시작 버튼 눌렀을때
     private fun start() {
+        time=25900
         if (subjectName.text.toString() == "") {
             Toast.makeText(context?.applicationContext, "과목명을 입력해주세요", Toast.LENGTH_SHORT).show()
             return
