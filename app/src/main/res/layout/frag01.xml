@@ -200,16 +200,16 @@
 
                                 <ImageButton
                                     android:id="@+id/listEdit"
-                                    android:layout_width="30dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="30dp"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="right"
                                     android:adjustViewBounds="true"
                                     android:backgroundTint="@color/white"
                                     android:padding="0dp"
                                     android:scaleType="fitCenter"
                                     android:src="@drawable/ic_noun_edit_3629720"
                                     android:tint="@color/pink_num1"
-                                    android:layout_marginRight="13dp"></ImageButton>
+                                    android:layout_marginRight="10dp"></ImageButton>
 
                             </LinearLayout>
 

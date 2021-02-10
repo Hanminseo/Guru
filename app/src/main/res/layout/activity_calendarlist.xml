@@ -30,6 +30,7 @@
             android:id="@+id/editBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:gravity="right"
             android:layout_weight="2"
             android:backgroundTint="@color/white_num1"
