@@ -108,7 +108,9 @@ class StopWatch2 : Fragment() {
 
     //시작 버튼 눌렀을때
     private fun start() {
-        time = 59000
+
+        time = 390000
+
         if (subjectName.text.toString() == "") {
             Toast.makeText(context?.applicationContext, "과목명을 입력해주세요", Toast.LENGTH_SHORT).show()
             return
@@ -118,7 +120,7 @@ class StopWatch2 : Fragment() {
         timerTask = timer(period = 10) {
             time++
 
-            hour = (time / 360000) % 24
+            hour = (time / 360000)%24
             min = time / 6000 % 60
             sec = time / 100 % 60
             watch = String.format("%02d : %02d : %02d", hour, min, sec)

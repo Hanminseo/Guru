@@ -17,19 +17,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="게시판"
+            android:text="전체 공지"
             android:textAlignment="center"
             android:textColor="@color/brown_num2"
+
             android:textSize="25dp"
             android:textStyle="bold"
             tools:layout_marginRight="10dp"></TextView>
 
         <ImageView
             android:id="@+id/deleteBtn"
+            android:layout_marginTop="4dp"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:backgroundTint="@color/brown_num1"
-            app:srcCompat="@drawable/ic_noun_delete_1533147" />
+            app:srcCompat="@drawable/ic_noun_delete_1533147"
+            app:tint="@color/brown_num2" />
 
 
     </LinearLayout>
