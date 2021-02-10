@@ -35,6 +35,7 @@ class Frag02 : Fragment() {
     lateinit var dateTv: TextView
     lateinit var targetTime: TextView
     lateinit var targetTimeBtn: ImageButton
+    lateinit var reloadBtn: ImageView
     lateinit var pgbar: ProgressBar
     lateinit var pgbarTv: TextView
     lateinit var totalTime: String
@@ -62,6 +63,7 @@ class Frag02 : Fragment() {
         dateTv = view.findViewById(R.id.dateTv)
         targetTime = view.findViewById(R.id.targetTime)
         targetTimeBtn = view.findViewById(R.id.targetTimeBtn)
+        reloadBtn = view.findViewById(R.id.reloadBtn)
         pgbar = view.findViewById(R.id.pgbar)
         pgbarTv = view.findViewById(R.id.pgbarTv)
         datestring = view.findViewById(R.id.dateTv)
@@ -99,11 +101,12 @@ class Frag02 : Fragment() {
                 tMin += Integer.parseInt(getTimeString.substring(5, 7))
                 tSec += Integer.parseInt(getTimeString.substring(10, 12))
             }
+            onSettingProgress()
         }
         cursor.close()
         sqlDB.close()
         mAdapter.notifyDataSetChanged()
-        onSettingProgress()
+
 
         // 총 공부량 합산 보이기
         tMin += (tSec / 60)
@@ -152,6 +155,11 @@ class Frag02 : Fragment() {
             dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.show()
         }
+
+        reloadBtn.setOnClickListener {
+            (activity as MainActivity).replaceFragment(Frag02())
+        }
+
 
         return view
     }
