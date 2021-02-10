@@ -91,6 +91,7 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
         //textView(공지) 계속 흐르도록
         noticeview.setSelected( true );
 
+
         //캘린더 동그라미 표시
         myCalendar.setSelectedDate(CalendarDay.today())
         onSettingCalDot()
@@ -129,12 +130,39 @@ class Frag01 : Fragment(), CircleProgressBar.ProgressFormatter{
 
         //    var groupInfo = group_m()
 
-
+            var flag2 = 0
             //그룹코드 통해서 공지 가져오기
             val docRef1 = firestore?.collection("group")?.document(groupCode.toString())
             docRef1?.get()?.addOnSuccessListener {
                 val group_m = it.toObject(group_m::class.java)
                 noticeview.setText(group_m?.storeContent)
+
+                // 리스트에 추가
+                sqlDB = dbManager.writableDatabase
+                val noticeDB = group_m?.storeName+ " : "+group_m?.storeContent
+                // 공지가 빈칸이 아닐 경우에 디비에 담음
+                if(group_m?.storeContent.toString() != "") {
+                    // noticeTBL에 있는 notice 내용을 모두 가져옴
+                    var cursor: Cursor
+                    cursor = sqlDB.rawQuery("SELECT notice FROM noticeTBL;", null)
+                    while (cursor.moveToNext()) {
+                        var getNotice = cursor.getString(0)
+                        var idx = getNotice.indexOf(":")
+                        var getNotice_idx = getNotice.substring(idx+2)
+                        println("여ㅕ기여2>" + group_m?.storeContent.toString()+'/'+getNotice_idx)
+
+                        // 이미 디비에 담긴 공지는 제외하고 디비에 넣음
+                        if (group_m?.storeContent.toString()== getNotice_idx) {
+                            flag2 = 1
+                        }
+                    }
+                    // 디비안에 없는 공지라면 insert
+                    if (flag2 == 0){
+                        sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('" + noticeDB + "');")
+                    }
+                    cursor.close()
+                    sqlDB.close()
+                }
             }
         }
 
