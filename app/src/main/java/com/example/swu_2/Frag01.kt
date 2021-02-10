@@ -48,25 +48,17 @@ class Frag01 : Fragment(){
     lateinit var layout_drawer : DrawerLayout
     lateinit var naviView : NavigationView
     lateinit var mAuth: FirebaseAuth
-
     lateinit var noticeview : TextView
-/*
-    //frag에서 뒤로가기 버튼
-    private lateinit var callback: OnBackPressedCallback
-
- */
 
     // 원형 프로그레스 바 설정 변수
     private val DEFAULT_PATTERN = "%d%%"
-    lateinit var circleProgressBar: PercentageChartView
+    lateinit var circleProgressBar : PercentageChartView
     var count: Int = 0
 
     //firebase,db 연결
     var fireEmail : FirebaseAuth? = null
     var firestore : FirebaseFirestore? = null
 
-
-    //lateinit var fragmentManager: FragmentManager
     lateinit var fragmentTransaction: FragmentTransaction
 
 
@@ -131,7 +123,6 @@ class Frag01 : Fragment(){
             //member객체에서 그룹코드 받아오기
             val groupCode = member?.storeGroup
 
-        //    var groupInfo = group_m()
 
             var flag2 = 0
             //그룹코드 통해서 공지 가져오기
@@ -274,7 +265,7 @@ class Frag01 : Fragment(){
             val selY = selDate.substring(0, 4).toInt()
             val selM = selDate.substring(5, 7).toInt() - 1
             val selD = selDate.substring(8, 10).toInt()
-            // 점 표시+ 점 색이 이상해~
+            // 점 표시
             myCalendar.addDecorator(EventDecorator(
                 Color.parseColor("#F093BD"),
                 Collections.singleton(CalendarDay.from(selY, selM, selD))))
