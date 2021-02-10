@@ -154,6 +154,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:pcv_orientation="counter_clockwise"
                             app:pcv_textColor="@color/brown_num2"
+                            app:pcv_textSize="25sp"
                             app:pcv_textShadowColor="@color/black"
                             app:pcv_textShadowDistX="3.0"
                             app:pcv_backgroundBarColor="#25997E75"
