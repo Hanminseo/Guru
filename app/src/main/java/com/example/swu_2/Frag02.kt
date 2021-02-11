@@ -24,7 +24,6 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class Frag02 : Fragment() {
     // 변수
     lateinit var plusBtn: ImageButton
@@ -126,7 +125,6 @@ class Frag02 : Fragment() {
             } else {
                 (activity as MainActivity).replaceFragment(StopWatch2())
             }
-
         }
 
         // targetTimeBtn 버튼 클릭 시 목표 시간 셋팅할 수 있는 스피너 생성
@@ -159,8 +157,6 @@ class Frag02 : Fragment() {
         reloadBtn.setOnClickListener {
             (activity as MainActivity).replaceFragment(Frag02())
         }
-
-
         return view
     }
 
@@ -181,7 +177,6 @@ class Frag02 : Fragment() {
         super.onDetach()
         callback.remove()
     }
-
 
     // 목표 시간 대비 공부 시간 프로그레스 바 설정
     private fun onSettingProgress() {
@@ -206,5 +201,4 @@ class Frag02 : Fragment() {
             pgbar.setProgress(0)
         }
     }
-
 }

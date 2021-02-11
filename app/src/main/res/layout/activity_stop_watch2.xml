@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            //과목
+            <!--과목-->
 
             <EditText
                 android:id="@+id/subjectName"
@@ -37,9 +37,9 @@
                 android:textSize="20sp"
                 android:textStyle="bold"></EditText>
 
-            //시,분
+            <!--시,분-->
 
-            //버튼
+            <!--버튼-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:src="@drawable/ic_noun_play_943866"
                 android:tint="@color/brown_num2"></ImageButton>
 
-            //공부하는 날짜 과목 시간 등록버튼
+            <!--공부하는 날짜 과목 시간 등록버튼-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,7 +89,6 @@
                     android:layout_margin="5dp"
                     android:layout_gravity="center"
                     android:background="#5C997E75"/>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"

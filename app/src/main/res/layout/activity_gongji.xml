@@ -22,15 +22,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:id="@+id/g_home"></ImageButton>
-
     </LinearLayout>
-    <LinearLayout
 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="28dp"
         android:layout_weight="2"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"

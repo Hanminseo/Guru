@@ -14,26 +14,24 @@
         android:background="@color/white_num1"
         android:orientation="vertical">
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
-            // 프레임
+           <!-- 프레임-->
 
             <FrameLayout
                 android:id="@+id/frame_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <!--android:layout_above="@id/bottom_navigation"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //상단바 메뉴
+                    <!-- 상단바 메뉴 -->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -111,7 +109,7 @@
 
                     </LinearLayout>
 
-                    //캘린더
+                    <!--캘린더-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -141,7 +139,7 @@
                         android:orientation="horizontal"
                         android:padding="10dp">
 
-                        // 프로그레스바
+                        <!-- 프로그레스바-->
                         <com.ramijemli.percentagechartview.PercentageChartView
                             android:id="@+id/cpb_circlebar"
                             android:layout_width="135dp"
@@ -231,27 +229,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </FrameLayout>
-<!--
-            // 하단 네비게이션 바
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/brown_num1"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white_num1"
-                app:menu="@menu/navigation_items" />
-        </RelativeLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/naviView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity = "start"
-            app:menu="@menu/person_menu"/>
--->
         </RelativeLayout>
     </androidx.drawerlayout.widget.DrawerLayout>
 

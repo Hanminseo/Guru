@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter
 
 class Frag04 : Fragment() {
 
+    //변수
     lateinit var todolist_SV: ListView
     lateinit var what_todo: EditText
     lateinit var savetodo: ImageButton
@@ -49,7 +50,7 @@ class Frag04 : Fragment() {
         edtBtn = view.findViewById(R.id.editBtn)
         titleTv = view.findViewById(R.id.titleTv)
 
-
+        //어댑터 연결
         adapter = ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_list_item_multiple_choice,
@@ -58,6 +59,7 @@ class Frag04 : Fragment() {
         todolist_SV.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
         todolist_SV.setAdapter(adapter)
 
+        //db에서 데이터 로드
         dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
         sqlDB = dbManager.readableDatabase
 
@@ -83,7 +85,7 @@ class Frag04 : Fragment() {
 
         adapter.notifyDataSetChanged()
 
-
+        //저장 버튼
         savetodo.setOnClickListener {
             var edtlist: String = what_todo.getText().toString()
 
@@ -122,7 +124,6 @@ class Frag04 : Fragment() {
         edtBtn.setOnClickListener {
             (activity as MainActivity).replaceFragment(Frag01())
         }
-
         return view
     }
     //frag에서 뒤로가기 버튼 누르면 메인(Frag01)으로 이동

@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
+    //변수
     lateinit var auth: FirebaseAuth
     private val TAG : String = "LoginActivity"
     lateinit var btnLogin : Button
@@ -52,30 +53,18 @@ class LoginActivity : AppCompatActivity() {
 
                         }
                 }
-
             }
-
         }
-
         //비밀번호 찾기
         tvFind.setOnClickListener{
             val intent = Intent(this,Password::class.java)
             startActivity(intent)
-
-
         }
-
 
         //회원가입
         tvReg.setOnClickListener{
             val intent = Intent(this,Join::class.java)
             startActivity(intent)
-
-
         }
-
     }
-
-
-
 }

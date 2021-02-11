@@ -95,8 +95,6 @@
                 android:tint="@color/brown_num1"></ImageButton>
 
         </LinearLayout>
-
     </LinearLayout>
-
 
 </LinearLayout>

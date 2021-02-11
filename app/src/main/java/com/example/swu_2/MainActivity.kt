@@ -73,9 +73,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         naviView.setNavigationItemSelectedListener(this)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
-
     }
-
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -118,21 +116,17 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                         Toast.makeText( this,task.exception.toString(),Toast.LENGTH_LONG).show()
                     }
                 }
-
             }
-
             R.id.SWUInfo -> {
                 //drawer 메뉴 개발자 정보
                 val intent = Intent(this, SwuInfo::class.java)
                 startActivity(intent)
             }
-
             R.id.gongji -> {
                 //공지 편집창 이동
                 val intent = Intent(this, Gonggi::class.java)
                 startActivity(intent)
             }
-
         }
         layout_drawer.closeDrawers()
         return false
@@ -144,8 +138,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         fragmentTransaction.replace(R.id.frame_container, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
-
-
     override fun onBackPressed() {
 
         if (layout_drawer.isDrawerOpen(GravityCompat.START)){
@@ -155,12 +147,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
     }
 
-
     override fun format(progress: Int, max: Int): CharSequence? {
         return String.format(
             DEFAULT_PATTERN,
             (progress.toFloat() / max.toFloat() * 100).toInt()
         )
     }
-
 }

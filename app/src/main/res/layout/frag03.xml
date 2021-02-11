@@ -42,8 +42,7 @@
                 android:textColor="@color/brown_num2"
                 android:textSize="21dp"
                 android:textStyle="bold"
-                android:layout_gravity="center"
-                />
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -118,7 +117,5 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
-
     </LinearLayout>
-
 </FrameLayout>

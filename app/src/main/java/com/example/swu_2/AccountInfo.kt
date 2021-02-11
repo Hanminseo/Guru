@@ -10,8 +10,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class AccountInfo : AppCompatActivity() {
 
+    //변수
     lateinit var pswdbtn : Button
-
     lateinit var userName: TextView
     lateinit var userEmail: TextView
     lateinit var groupNum: TextView

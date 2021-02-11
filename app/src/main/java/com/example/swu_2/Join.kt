@@ -13,7 +13,6 @@ class Join : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     private val TAG : String = "Join"
-
     var emailAuth : FirebaseAuth? = null
     var emailFirestore : FirebaseFirestore? = null
 

@@ -7,6 +7,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class NoticeBoard : AppCompatActivity() {
+
+    //변수
     lateinit var boardlist: ListView
     lateinit var adapter: ArrayAdapter<String>
     lateinit var listItem: ArrayList<String>
@@ -57,6 +59,5 @@ class NoticeBoard : AppCompatActivity() {
 
             Toast.makeText(this, "공지가 모두 삭제되었습니다", Toast.LENGTH_SHORT).show()
         }
-
     }
 }

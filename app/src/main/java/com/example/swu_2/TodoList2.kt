@@ -1,7 +1,5 @@
 package com.example.swu_2
 
-
-
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -13,9 +11,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 
-
 class TodoList2 : Fragment()  {
 
+    //변수
     lateinit var listPlus: ImageButton
     lateinit var listDelete: ImageButton
     lateinit var edtList: EditText
@@ -107,15 +105,11 @@ class TodoList2 : Fragment()  {
             adapter.notifyDataSetChanged()
         }
 
-
         // 편집 버튼 클릭 시 메인 액티비티로 화면 전환
         editBtn.setOnClickListener {
             // 인텐트 전달
             (activity as MainActivity).replaceFragment(Frag01())
         }
-
-
         return view
     }
-
 }

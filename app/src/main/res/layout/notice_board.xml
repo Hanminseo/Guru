@@ -31,7 +31,6 @@
             android:backgroundTint="@color/brown_num1"
             app:srcCompat="@drawable/ic_noun_delete_1533147" />
 
-
     </LinearLayout>
 
     <ListView
@@ -40,4 +39,5 @@
         android:layout_height="match_parent"
         android:background="@drawable/round2"
         android:padding="20dp" />
+
 </LinearLayout>

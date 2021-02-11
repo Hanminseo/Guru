@@ -102,7 +102,6 @@ class Frag01 : Fragment(){
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
             sqlDB.close()
             (activity as MainActivity).replaceFragment(Frag04())
-            //myCalendar.addDecorator(EventDecorator(Color.RED, Collections.singleton(CalendarDay.today())))
         }
 
         //firebase,firestore 접근
@@ -289,15 +288,11 @@ class Frag01 : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
-
-
-
+    //뒤로가기 버튼 필요 메소드
     override fun onDetach() {
         super.onDetach()
         callback.remove()
     }
-
-
 }
 
 

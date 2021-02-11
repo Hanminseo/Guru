@@ -5,7 +5,9 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 import com.prolificinteractive.materialcalendarview.spans.DotSpan
 
+//material calendar 일정 점표시 class
 class EventDecorator(color:Int, dates:Collection<CalendarDay>): DayViewDecorator {
+
     private var color:Int = 0
     private val dates:HashSet<CalendarDay>
     init{

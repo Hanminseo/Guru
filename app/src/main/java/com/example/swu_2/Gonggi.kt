@@ -11,8 +11,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Gonggi : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-
-
     var emailAuth : FirebaseAuth? = null
     var emailFirestore : FirebaseFirestore? = null
 
@@ -31,7 +29,6 @@ class Gonggi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gongji)
 
-
         auth = FirebaseAuth.getInstance()
 
         //firestore
@@ -48,7 +45,6 @@ class Gonggi : AppCompatActivity() {
         val btnNotice1 = findViewById<Button>(R.id.btnNotice1)
         val btnNotice2 = findViewById<Button>(R.id.btnNotice2)
         val gonggi_home = findViewById<ImageButton>(R.id.g_home)
-
 
         btnNotice2.setOnClickListener {
 
@@ -72,14 +68,9 @@ class Gonggi : AppCompatActivity() {
                 groupInfo.storeContent = notice_w.getText().toString()
                 groupInfo.storeName = name
 
-
                 emailFirestore?.collection("group")?.document(phone.toString())?.set(groupInfo)
-
-
             }
-
         }
-
         btnNotice1.setOnClickListener {
 
             //계정 uid가져오기
@@ -110,9 +101,7 @@ class Gonggi : AppCompatActivity() {
                     }
                     println("여ㅕ기여"+group_m?.storeName.toString()+group_m?.storeContent.toString())
                     sqlDB.close()
-
                 }
-
             }
         }
 
@@ -128,7 +117,6 @@ class Gonggi : AppCompatActivity() {
 
         }
     }
-
     override fun onBackPressed() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()

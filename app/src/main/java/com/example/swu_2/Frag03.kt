@@ -14,6 +14,7 @@ import java.util.*
 
 class Frag03 : Fragment(){
 
+    //변수
     lateinit var allcon : ImageButton
     lateinit var specup : ImageButton
     lateinit var linkareer : ImageButton
@@ -39,13 +40,10 @@ class Frag03 : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
-
     override fun onDetach() {
         super.onDetach()
         callback.remove()
     }
-
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         allcon = getView()?.findViewById(R.id.allcon)!!
@@ -53,6 +51,7 @@ class Frag03 : Fragment(){
         linkareer = getView()?.findViewById(R.id.linkareer)!!
         wevity = getView()?.findViewById(R.id.wevity)!!
 
+        //버큰 클릭시 각 사이트 연결
         allcon.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.all-con.co.kr"))
             startActivity(intent)
@@ -73,6 +72,5 @@ class Frag03 : Fragment(){
             startActivity(intent)
         }
         super.onActivityCreated(savedInstanceState)
-
     }
 }

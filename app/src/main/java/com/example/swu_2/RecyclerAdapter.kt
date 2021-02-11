@@ -1,6 +1,5 @@
 package com.example.swu_2
 
-
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -37,8 +36,8 @@ class RecyclerAdapter(val context: Context, val timeList: ArrayList<Time>) :
 
     // 아이템 삭제 메소드
     fun removeItem(pos: Int) {
-        timeList.removeAt(pos)
 
+        timeList.removeAt(pos)
         notifyItemRemoved(pos)
         notifyDataSetChanged()
     }
@@ -82,7 +81,5 @@ class RecyclerAdapter(val context: Context, val timeList: ArrayList<Time>) :
                 true
             }
         }
-
-
     }
 }
