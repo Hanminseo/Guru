@@ -75,6 +75,7 @@ class StopWatch2 : Fragment() {
                 pause()
             }
         }
+
         // 현재 날짜 로드
         var now = LocalDate.now()
 
@@ -107,6 +108,7 @@ class StopWatch2 : Fragment() {
 
     //시작 버튼 눌렀을때
     private fun start() {
+        time = 59000
         if (subjectName.text.toString() == "") {
             Toast.makeText(context?.applicationContext, "과목명을 입력해주세요", Toast.LENGTH_SHORT).show()
             return
