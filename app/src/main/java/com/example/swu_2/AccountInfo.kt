@@ -49,6 +49,7 @@ class AccountInfo : AppCompatActivity() {
             birth.setText(member?.storeBirth)
         }
 
+        //비밀번호 변경페이지로 이동
         pswdbtn = findViewById(R.id.pswdbtn)
         pswdbtn.setOnClickListener {
             startActivity(Intent(this,Password::class.java))

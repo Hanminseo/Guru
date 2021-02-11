@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
                         if(task.isSuccessful) {
                             //성공시 메인엑티비티로 전환
                             startActivity(Intent(this, MainActivity::class.java))
+                            Toast.makeText(this,"로그인 성공",Toast.LENGTH_SHORT).show()
                             finish()
 
                             Log.d(TAG, "signInWithEmail:success")
@@ -49,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                         }else{
                             //실패시 오류메세지
                             Log.w(TAG,"signInWithEmail:failure", task.exception)
-                            Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"로그인 실패.",Toast.LENGTH_SHORT).show()
 
                         }
                 }

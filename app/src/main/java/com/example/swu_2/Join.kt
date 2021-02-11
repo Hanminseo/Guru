@@ -23,12 +23,12 @@ class Join : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        //firestore접근용
+        //firestore,firebase접근용
         emailAuth = FirebaseAuth.getInstance()
         emailFirestore = FirebaseFirestore.getInstance()
 
 
-        //사용자가 입력한 값
+        //id와 연결
         val email = findViewById<EditText>(R.id.Email)
         val password = findViewById<EditText>(R.id.Password)
         val btnOk = findViewById<Button>(R.id.btnOk)
@@ -39,11 +39,11 @@ class Join : AppCompatActivity() {
         //계정만들기
         btnOk.setOnClickListener {
 
-            //email,password 공백시 오류
+            //email,password 공백시 toast 띄우기
             if (email.text.toString().length == 0 || password.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 입력하세요.", Toast.LENGTH_SHORT).show()
             }
-            //그룹코드 6자리 이하 입력시 오류
+            //그룹코드 6자리 이하 입력시 toast 띄우기
             else if (groupnum.text.toString().length <= 6) {
                 Toast.makeText(this, "코드를 7자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
             }
@@ -63,7 +63,7 @@ class Join : AppCompatActivity() {
                             //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
                             if (true) {
                                 var userInfo = Member() //회원정보 저장 객체
-                                var groupInfo = group_m() //공지내용 저장 객체
+                              //  var groupInfo = group_m() //공지내용 저장 객체
 
                                 //회원정보 객체에 저장
                                 userInfo.storeUid = emailAuth?.uid

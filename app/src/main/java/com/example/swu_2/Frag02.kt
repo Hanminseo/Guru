@@ -25,6 +25,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Frag02 : Fragment() {
+
     // 변수
     lateinit var plusBtn: ImageButton
     lateinit var dbManager: DBManager

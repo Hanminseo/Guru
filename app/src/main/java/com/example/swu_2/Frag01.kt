@@ -115,7 +115,7 @@ class Frag01 : Fragment(){
         val docRef = firestore?.collection("member")?.document(store_uid.toString())
         docRef?.get()?.addOnSuccessListener {
 
-            //member객체에 회원정보 내용 저장 후 이름 띄우기
+            //member객체에 회원정보 내용 저장 후 그중에 이름 띄우기
             val member = it.toObject(Member::class.java)
             userID.setText(member?.storeName)
 
@@ -124,9 +124,11 @@ class Frag01 : Fragment(){
 
 
             var flag2 = 0
-            //그룹코드 통해서 공지 가져오기
+
+            //그룹코드 통해서 문서 접근
             val docRef1 = firestore?.collection("group")?.document(groupCode.toString())
             docRef1?.get()?.addOnSuccessListener {
+                //객체로 저장 후 내용 띄우기
                 val group_m = it.toObject(group_m::class.java)
                 noticeview.setText(group_m?.storeContent)
 

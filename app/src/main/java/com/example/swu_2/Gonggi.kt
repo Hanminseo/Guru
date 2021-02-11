@@ -29,9 +29,10 @@ class Gonggi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gongji)
 
+        //db접근
         auth = FirebaseAuth.getInstance()
 
-        //firestore
+        //firestore,auth 접근
         emailAuth = FirebaseAuth.getInstance()
         emailFirestore = FirebaseFirestore.getInstance()
 
@@ -56,19 +57,19 @@ class Gonggi : AppCompatActivity() {
             docRef?.get()?.addOnSuccessListener {
                 val member = it.toObject(Member::class.java)
 
-                //객체 내용 띄우기
+                //객체 내용 중 이름이랑 그룹이름 저장
 
                 val name = member?.storeName
-                val phone = member?.storeGroup
+                val groupcode = member?.storeGroup
 
-                //firestore 저장
+                //객체를 통해 공지내용 db에 저장
 
                 var groupInfo = group_m()
 
                 groupInfo.storeContent = notice_w.getText().toString()
                 groupInfo.storeName = name
 
-                emailFirestore?.collection("group")?.document(phone.toString())?.set(groupInfo)
+                emailFirestore?.collection("group")?.document(groupcode.toString())?.set(groupInfo)
             }
         }
         btnNotice1.setOnClickListener {
@@ -81,17 +82,19 @@ class Gonggi : AppCompatActivity() {
             docRef?.get()?.addOnSuccessListener {
                 val member = it.toObject(Member::class.java)
 
-                //객체 내용 띄우기
+                //그룹코드 가져오기
 
                 val group_code = member?.storeGroup
 
-                var groupInfo = group_m()
+              //  var groupInfo = group_m()
 
 
-                //member컬렉션에 일치하는 uid의 문서 객체로 가져오기
+                //group컬렉션에 일치하는 그룹코드의 문서 객체로 가져오기
                 val docRef1 = emailFirestore?.collection("group")?.document(group_code.toString())
                 docRef1?.get()?.addOnSuccessListener {
                     val group_m = it.toObject(group_m::class.java)
+
+                    //공지 작성자와 내용 같이 출력
                     notice_r.setText(group_m?.storeName+ " : " + group_m?.storeContent)
 
                     // 리스트에 추가
@@ -117,6 +120,8 @@ class Gonggi : AppCompatActivity() {
 
         }
     }
+
+    //메인으로 돌아가기
     override fun onBackPressed() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
