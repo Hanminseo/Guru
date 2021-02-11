@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                         Toast.makeText(applicationContext, "계정삭제 완료", Toast.LENGTH_SHORT).show()
 
                     }else{
-                        Toast.makeText( this,task.exception.toString(),Toast.LENGTH_LONG).show()
+                        Toast.makeText( this,"재로그인 후 시도해 주세요.",Toast.LENGTH_LONG).show()
                     }
                 }
             }
