@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SWU2">
 
-        <activity android:name=".Website" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".NoticeBoard" />
         <activity android:name=".Join" />
