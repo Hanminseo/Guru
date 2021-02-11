@@ -52,6 +52,11 @@ class LoginActivity : AppCompatActivity() {
                             Log.w(TAG,"signInWithEmail:failure", task.exception)
                             Toast.makeText(this,"로그인 실패.",Toast.LENGTH_SHORT).show()
 
+                            //실패시 입력칸 공백으로 설정
+                            email?.setText("")
+                            password?.setText("")
+                            email.requestFocus()
+
                         }
                 }
             }
