@@ -226,8 +226,13 @@ class Frag01 : Fragment(){
             }
         }
         // 전체 항목 대비 체크된 항목의 비율을 퍼센테이지로 설정
-        var percentInt = ((checkInt / count.toDouble())*100)
-        circleProgressBar.setProgress(percentInt.toFloat(), true)
+        try {
+            var percentInt = ((checkInt / count.toDouble()) * 100)
+            circleProgressBar.setProgress(percentInt.toFloat(), true)
+        } catch (e: ArithmeticException){
+            // 퍼센테이지 분모(target)에 0이 들어오는 경우 오류 메세지 print
+            println("error: "+ e.message)
+        }
     }
 
     // 투두리스트 항목들의 체크 여부 db에 저장함
