@@ -6,16 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
     //변수
     lateinit var auth: FirebaseAuth
     private val TAG : String = "LoginActivity"
-    lateinit var btnLogin : Button
-    lateinit var tvReg : TextView
-    lateinit var tvFind : TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white_num1">
+    android:layout_height="match_parent"
+    android:background="@color/white_num1"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,17 +12,17 @@
         android:orientation="vertical">
 
         <ImageButton
+            android:id="@+id/g_home"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_noun_home_1526044"
             android:layout_gravity="right"
-            android:padding="0sp"
-            android:scaleType="fitCenter"
-            android:backgroundTint="#00ff0000"
-            android:tint="@color/brown_num2"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:id="@+id/g_home"></ImageButton>
+            android:backgroundTint="#00ff0000"
+            android:padding="0sp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_noun_home_1526044"
+            android:tint="@color/brown_num2"></ImageButton>
     </LinearLayout>
 
     <LinearLayout
@@ -39,45 +40,40 @@
             android:text="공지 사항"
             android:textColor="@color/brown_num2"
             android:textSize="30dp"
-            android:textStyle="bold"
-            ></TextView>
+            android:textStyle="bold"></TextView>
+
         <ImageView
             android:id="@+id/noticeBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_noun_notice_2918258"
             android:layout_gravity="center"
-            app:tint="@color/brown_num2">
-        </ImageView>
+            android:src="@drawable/ic_noun_notice_2918258"
+            app:tint="@color/brown_num2"></ImageView>
 
     </LinearLayout>
-
-
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="0.7"
-        >
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/notice_r"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/brown_round"
+            android:gravity="center"
             android:hint="공지 내용"
             android:textAlignment="center"
             android:textColor="@color/white_num1"
             android:textSize="20dp"
-            android:id="@+id/notice_r"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:gravity="center"
-            ></TextView>
+            android:textStyle="bold"></TextView>
 
         <EditText
+            android:id="@+id/notice_w"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -85,16 +81,14 @@
             android:background="@drawable/round"
             android:hint="공지를 입력하세요"
             android:textAlignment="center"
-            android:id="@+id/notice_w"
-            android:textSize="20dp"
-            ></EditText>
+            android:textSize="20dp"></EditText>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0.7">
+        android:layout_weight="0.7"
+        android:orientation="horizontal">
 
 
         <Button
@@ -105,9 +99,9 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:backgroundTint="@color/brown_num2"
-            android:text="불러오기" />
+            android:text="불러오기"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnNotice2"
@@ -118,8 +112,8 @@
             android:layout_marginRight="50dp"
             android:layout_weight="1"
             android:backgroundTint="@color/brown_num2"
-            android:textStyle="bold"
-            android:text="저장하기" />
+            android:text="저장하기"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

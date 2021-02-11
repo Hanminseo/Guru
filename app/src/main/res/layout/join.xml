@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_num1"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvRegister"
@@ -28,40 +28,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:backgroundTint="@color/brown_num1"
         android:ems="10"
         android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvRegister"
-        android:backgroundTint="@color/brown_num1"/>
+        app:layout_constraintTop_toTopOf="@+id/tvRegister" />
 
     <EditText
-        android:importantForAutofill="no"
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
+        android:backgroundTint="@color/brown_num1"
         android:ems="10"
         android:hint="@string/swu_gmail_com"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvRegister"
-        android:backgroundTint="@color/brown_num1"/>
+        app:layout_constraintTop_toTopOf="@+id/tvRegister" />
 
     <EditText
-        android:importantForAutofill="no"
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:backgroundTint="@color/brown_num1"
         android:ems="10"
         android:hint="@string/pw"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvRegister"
-        android:backgroundTint="@color/brown_num1"/>
+        app:layout_constraintTop_toTopOf="@+id/tvRegister" />
 
 
     <EditText
@@ -69,36 +69,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="376dp"
+        android:backgroundTint="@color/brown_num1"
         android:ems="10"
         android:hint="2000.01.01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/brown_num1"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/GroupNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="436dp"
+        android:backgroundTint="@color/brown_num1"
         android:ems="10"
         android:hint="그룹 코드 (7자리 이상)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/brown_num1"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnOk"
         android:layout_width="188dp"
         android:layout_height="46dp"
         android:layout_marginBottom="100dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:backgroundTint="#997E75"
         android:text="@string/register"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

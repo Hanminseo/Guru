@@ -23,7 +23,7 @@
         android:layout_gravity="center"
         android:layout_margin="50dp"
         android:baselineAligned="false"
-        android:src="@drawable/logo"></ImageView>
+        android:src="@drawable/applogo"></ImageView>
 
     <TextView
         android:id="@+id/infoHyeJin"

@@ -25,7 +25,7 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.ramijemli.percentagechartview.PercentageChartView
 import java.util.*
 
-class Frag01 : Fragment(){
+class Frag01 : Fragment() {
 
     // DB에서 리스트 정보 로드하는 변수
     lateinit var dbManager: DBManager
@@ -43,18 +43,15 @@ class Frag01 : Fragment(){
     lateinit var todoListView: ListView
     lateinit var adapter: ArrayAdapter<String>
     lateinit var listItem: ArrayList<String>
-    lateinit var layout_drawer : DrawerLayout
-    lateinit var naviView : NavigationView
-    lateinit var mAuth: FirebaseAuth
-    lateinit var noticeview : TextView
+    lateinit var noticeview: TextView
 
     // 원형 프로그레스 바 설정 변수
-    lateinit var circleProgressBar : PercentageChartView
+    lateinit var circleProgressBar: PercentageChartView
     var count: Int = 0
 
     //firebase,db 연결
-    var fireEmail : FirebaseAuth? = null
-    var firestore : FirebaseFirestore? = null
+    var fireEmail: FirebaseAuth? = null
+    var firestore: FirebaseFirestore? = null
 
 
     override fun onCreateView(
@@ -79,7 +76,7 @@ class Frag01 : Fragment(){
         noticeview = view.findViewById(R.id.noticeview)
 
         //textView(공지) 계속 흐르도록
-        noticeview.setSelected( true );
+        noticeview.setSelected(true);
 
 
         //캘린더 일정 동그라미 표시
@@ -91,7 +88,7 @@ class Frag01 : Fragment(){
             val year = date.year
             val month = date.month
             val day = date.day
-            var strDay = String.format("%d.%02d.%02d", year, month+1, day)
+            var strDay = String.format("%d.%02d.%02d", year, month + 1, day)
             sqlDB = dbManager.writableDatabase
             // 마지막 쿼리 '1'은 날짜 선택 여부를 의미함('1'은 선택,'0'은 미선택(default))
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
@@ -130,24 +127,24 @@ class Frag01 : Fragment(){
 
                 // 리스트에 추가
                 sqlDB = dbManager.writableDatabase
-                val noticeDB = group_m?.storeName+ " : "+group_m?.storeContent
+                val noticeDB = group_m?.storeName + " : " + group_m?.storeContent
                 // 공지가 빈칸이 아닐 경우에 디비에 담음
-                if(group_m?.storeContent.toString() != "") {
+                if (group_m?.storeContent.toString() != "") {
                     // noticeTBL에 있는 notice 내용을 모두 가져옴
                     var cursor: Cursor
                     cursor = sqlDB.rawQuery("SELECT notice FROM noticeTBL;", null)
                     while (cursor.moveToNext()) {
                         var getNotice = cursor.getString(0)
                         var idx = getNotice.indexOf(":")
-                        var getNotice_idx = getNotice.substring(idx+2)
+                        var getNotice_idx = getNotice.substring(idx + 2)
 
                         // 이미 디비에 담긴 공지는 flag2를 1로 설정함
-                        if (group_m?.storeContent.toString()== getNotice_idx) {
+                        if (group_m?.storeContent.toString() == getNotice_idx) {
                             flag2 = 1
                         }
                     }
                     // 디비 안에 없는 공지라면 insert
-                    if (flag2 == 0){
+                    if (flag2 == 0) {
                         sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('" + noticeDB + "');")
                     }
                     cursor.close()
@@ -172,12 +169,12 @@ class Frag01 : Fragment(){
         var cnt = 0
         // todolistTBL에서 내용과 체크된 여부 모두 가지고 옴
         cursor = sqlDB.rawQuery("SELECT * FROM todolistTBL;", null)
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             getItemString = cursor.getString(0)
             getCheckedItem = cursor.getString(1)
             listItem.add(getItemString)
             // db에서 체크 상태도 가져와서 반영
-            if(getCheckedItem == "CHECKED"){
+            if (getCheckedItem == "CHECKED") {
                 todoListView.setItemChecked(cnt, true)
             }
             cnt++
@@ -229,9 +226,9 @@ class Frag01 : Fragment(){
         try {
             var percentInt = ((checkInt / count.toDouble()) * 100)
             circleProgressBar.setProgress(percentInt.toFloat(), true)
-        } catch (e: ArithmeticException){
+        } catch (e: ArithmeticException) {
             // 퍼센테이지 분모(target)에 0이 들어오는 경우 오류 메세지 print
-            println("error: "+ e.message)
+            println("error: " + e.message)
         }
     }
 
@@ -250,12 +247,14 @@ class Frag01 : Fragment(){
             if (checkedItems.get(i)) {
                 sqlDB.execSQL(
                     "UPDATE todolistTBL SET checked='CHECKED' WHERE item ='" + listItem.get(
-                        i) + "';"
+                        i
+                    ) + "';"
                 )
             }
             sqlDB.close()
         }
     }
+
     // 달력에 일정 표시하기
     private fun onSettingCalDot() {
         sqlDB = dbManager.readableDatabase
@@ -268,9 +267,12 @@ class Frag01 : Fragment(){
             val selM = selDate.substring(5, 7).toInt() - 1
             val selD = selDate.substring(8, 10).toInt()
             // 점 표시
-            myCalendar.addDecorator(EventDecorator(
-                Color.parseColor("#F093BD"),
-                Collections.singleton(CalendarDay.from(selY, selM, selD))))
+            myCalendar.addDecorator(
+                EventDecorator(
+                    Color.parseColor("#F093BD"),
+                    Collections.singleton(CalendarDay.from(selY, selM, selD))
+                )
+            )
         }
         cursor.close()
         sqlDB.close()
@@ -288,6 +290,7 @@ class Frag01 : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
+
     //뒤로가기 버튼 필요 메소드
     override fun onDetach() {
         super.onDetach()

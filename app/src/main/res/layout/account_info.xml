@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/white_num1"
@@ -33,6 +31,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginStart="3dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="80dp"
             android:src="@drawable/ic_noun_person_2024959"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,45 +40,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/myAccount"
             app:layout_constraintVertical_bias="0.736"
-            app:tint="@color/brown_num1"
-            android:layout_marginTop="30dp"/>
+            app:tint="@color/brown_num1" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
         android:background="@drawable/round2"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_weight="1"
-        android:layout_gravity="center">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="이름 : "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
                 android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myAccount"
-                android:layout_gravity="center">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"></TextView>
 
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
@@ -87,36 +85,35 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myAccount"
-                android:layout_gravity="center" />
+                app:layout_constraintTop_toBottomOf="@+id/myAccount" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="메일 : "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
                 android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myAccount"
-                android:layout_gravity="center">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"></TextView>
 
             <TextView
                 android:id="@+id/userEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="swu@gmail.com"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
@@ -124,72 +121,70 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userName"
-                android:layout_gravity="center"/>
+                app:layout_constraintTop_toBottomOf="@+id/userName" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="그룹 코드 : "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
                 android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myAccount"
-                android:layout_gravity="center">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"></TextView>
 
             <TextView
                 android:id="@+id/groupNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="010-0000-0000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userEmail"
-                android:layout_gravity="center"/>
+                app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="생일 : "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
                 android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myAccount"
-                android:layout_gravity="center">
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/myAccount"></TextView>
 
             <TextView
                 android:id="@+id/birth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="00/01/15"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/brown_num2"
@@ -197,8 +192,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/groupNum"
-                android:layout_gravity="center"/>
+                app:layout_constraintTop_toBottomOf="@+id/groupNum" />
 
         </LinearLayout>
 
@@ -206,6 +200,7 @@
             android:id="@+id/pswdbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/pink_num2"
             android:text="비밀번호 변경"
@@ -215,8 +210,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userEmail"
-            android:layout_gravity="center"/>
+            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
     </LinearLayout>
 

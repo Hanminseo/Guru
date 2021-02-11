@@ -12,9 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Join : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-    private val TAG : String = "Join"
-    var emailAuth : FirebaseAuth? = null
-    var emailFirestore : FirebaseFirestore? = null
+    private val TAG: String = "Join"
+    var emailAuth: FirebaseAuth? = null
+    var emailFirestore: FirebaseFirestore? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,11 +59,9 @@ class Join : AppCompatActivity() {
                             ).show()
 
 
-
                             //firestore에 회원정보 저장, 그룹코드 전용 문서 생성
                             if (true) {
                                 var userInfo = Member() //회원정보 저장 객체
-                              //  var groupInfo = group_m() //공지내용 저장 객체
 
                                 //회원정보 객체에 저장
                                 userInfo.storeUid = emailAuth?.uid
@@ -73,7 +71,8 @@ class Join : AppCompatActivity() {
                                 userInfo.storeGroup = groupnum.getText().toString()
 
                                 //객체내용 firestore에 저장
-                                emailFirestore?.collection("member")?.document(emailAuth?.uid.toString())?.set(userInfo)
+                                emailFirestore?.collection("member")
+                                    ?.document(emailAuth?.uid.toString())?.set(userInfo)
 
 
                             } else {

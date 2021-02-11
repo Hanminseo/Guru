@@ -11,14 +11,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Gonggi : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-    var emailAuth : FirebaseAuth? = null
-    var emailFirestore : FirebaseFirestore? = null
+    var emailAuth: FirebaseAuth? = null
+    var emailFirestore: FirebaseFirestore? = null
 
-    lateinit var notice_w : EditText //입력
-    lateinit var notice_r: TextView //출력
-    lateinit var btnNotice1 : Button //버튼
-    lateinit var btnNotice2 : Button
-    lateinit var gonggi_home: ImageButton
 
     lateinit var dbManager: DBManager
     lateinit var sqlDB: SQLiteDatabase
@@ -86,7 +81,7 @@ class Gonggi : AppCompatActivity() {
 
                 val group_code = member?.storeGroup
 
-              //  var groupInfo = group_m()
+                //  var groupInfo = group_m()
 
 
                 //group컬렉션에 일치하는 그룹코드의 문서 객체로 가져오기
@@ -95,12 +90,12 @@ class Gonggi : AppCompatActivity() {
                     val group_m = it.toObject(group_m::class.java)
 
                     //공지 작성자와 내용 같이 출력
-                    notice_r.setText(group_m?.storeName+ " : " + group_m?.storeContent)
+                    notice_r.setText(group_m?.storeName + " : " + group_m?.storeContent)
 
                     // noticeTBL에 공지내용 추가
                     sqlDB = dbManager.writableDatabase
-                    if(group_m?.storeContent.toString() != "") {
-                        sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('"+notice_r.text.toString()+"');")
+                    if (group_m?.storeContent.toString() != "") {
+                        sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('" + notice_r.text.toString() + "');")
                     }
                     sqlDB.close()
                 }
@@ -114,7 +109,7 @@ class Gonggi : AppCompatActivity() {
         }
 
         //버튼 클릭시 메인홈으로 이동
-        gonggi_home.setOnClickListener{
+        gonggi_home.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
 

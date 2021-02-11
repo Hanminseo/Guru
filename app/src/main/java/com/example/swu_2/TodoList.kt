@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 
-class TodoList : Fragment()  {
+class TodoList : Fragment() {
 
     //변수
     lateinit var listPlus: ImageButton
@@ -29,6 +29,7 @@ class TodoList : Fragment()  {
         super.onCreate(savedInstanceState)
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,6 +58,7 @@ class TodoList : Fragment()  {
         dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
         sqlDB = dbManager.readableDatabase
 
+        // todolistTBL 테이블에 있는 item 꺼내와서 listView에 추가
         var cursor: Cursor
         cursor = sqlDB.rawQuery("SELECT item FROM todolistTBL;", null)
         while (cursor.moveToNext()) {
@@ -68,7 +70,7 @@ class TodoList : Fragment()  {
         adapter.notifyDataSetChanged()
 
 
-        //리스트 추가
+        //리스트+디비 추가
         listPlus.setOnClickListener {
             var edtlist: String = edtList.getText().toString()
 

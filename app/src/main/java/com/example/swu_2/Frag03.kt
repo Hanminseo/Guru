@@ -10,15 +10,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import java.util.*
 
-class Frag03 : Fragment(){
+class Frag03 : Fragment() {
 
     //변수
-    lateinit var allcon : ImageButton
-    lateinit var specup : ImageButton
-    lateinit var linkareer : ImageButton
-    lateinit var wevity : ImageButton
+    lateinit var allcon: ImageButton
+    lateinit var specup: ImageButton
+    lateinit var linkareer: ImageButton
+    lateinit var wevity: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +39,7 @@ class Frag03 : Fragment(){
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
+
     override fun onDetach() {
         super.onDetach()
         callback.remove()

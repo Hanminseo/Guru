@@ -1,9 +1,7 @@
 package com.example.swu_2
 
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.util.SparseBooleanArray
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -13,19 +11,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
     NavigationView.OnNavigationItemSelectedListener {
 
     //변수
-    lateinit var layout_drawer : DrawerLayout
-    lateinit var naviView : NavigationView
+    lateinit var layout_drawer: DrawerLayout
+    lateinit var naviView: NavigationView
 
     lateinit var fragmentManager: FragmentManager
     lateinit var fragmentTransaction: FragmentTransaction
@@ -44,7 +39,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         var intent = intent
         var flag = intent.getIntExtra("flag", 0)
         // 받은 값이 0이 아닌 값이라면 옆 서랍 메뉴가 작동하도록 구현
-        if(flag != 0){
+        if (flag != 0) {
             layout_drawer.openDrawer(GravityCompat.START)
         }
 
@@ -90,14 +85,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.delete -> {
                 //drawer 메뉴 회원 탈퇴
-                FirebaseAuth.getInstance().currentUser!!.delete().addOnCompleteListener{ task->
-                    if(task.isSuccessful){
+                FirebaseAuth.getInstance().currentUser!!.delete().addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(applicationContext, "계정삭제 완료", Toast.LENGTH_SHORT).show()
 
-                    }else{
-                        Toast.makeText( this,"재로그인 후 시도해 주세요.",Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "재로그인 후 시도해 주세요.", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -120,14 +115,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     public fun replaceFragment(fragment: Fragment) {
         fragmentManager = getSupportFragmentManager()
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_container, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        fragmentTransaction.replace(R.id.frame_container, fragment)
+            .commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
     // 뒤로 가기
     override fun onBackPressed() {
-        if (layout_drawer.isDrawerOpen(GravityCompat.START)){
+        if (layout_drawer.isDrawerOpen(GravityCompat.START)) {
             layout_drawer.closeDrawers()
-        }else{
+        } else {
             super.onBackPressed()
         }
     }

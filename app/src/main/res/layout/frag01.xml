@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- 상단바 메뉴 -->
+                <!-- 상단 -->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -212,7 +212,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-
+                            <!-- 투두리스트 listView -->
                             <ListView
                                 android:id="@+id/todoListView"
                                 android:layout_width="match_parent"

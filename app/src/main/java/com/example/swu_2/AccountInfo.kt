@@ -11,15 +11,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AccountInfo : AppCompatActivity() {
 
     //변수
-    lateinit var pswdbtn : Button
+    lateinit var pswdbtn: Button
     lateinit var userName: TextView
     lateinit var userEmail: TextView
     lateinit var groupNum: TextView
     lateinit var birth: TextView
 
     //firebase,db 연결
-    var fireEmail : FirebaseAuth? = null
-    var firestore : FirebaseFirestore? = null
+    var fireEmail: FirebaseAuth? = null
+    var firestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class AccountInfo : AppCompatActivity() {
         //비밀번호 변경페이지로 이동
         pswdbtn = findViewById(R.id.pswdbtn)
         pswdbtn.setOnClickListener {
-            startActivity(Intent(this,Password::class.java))
+            startActivity(Intent(this, Password::class.java))
         }
     }
 }

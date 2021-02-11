@@ -34,7 +34,6 @@ class StopWatch : Fragment() {
     lateinit var i_studytime: TextView
     lateinit var uploadBtn: Button
 
-    lateinit var inflater: LayoutInflater
     var hour = 0
     var min = 0
     var sec = 0
@@ -43,14 +42,14 @@ class StopWatch : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // activity_stop_watch2 xml로 화면 구성
+        // activity_stop_watch xml로 화면 구성
         val view: View = inflater.inflate(R.layout.activity_stop_watch, container, false)
 
         playbtn = view.findViewById(R.id.playbtn)
@@ -85,16 +84,21 @@ class StopWatch : Fragment() {
         // 등록 버튼 클릭 메소드
         uploadBtn.setOnClickListener {
             // 과목 명과 시간이 등록되어있지 않다면 토스트 메시지가 출력됨
-            if (subjectName.text.toString() == "" ) {
-                Toast.makeText(context?.applicationContext, "과목 명을 등록하고 시간을 측정해주십시오", Toast.LENGTH_SHORT).show()
-            } else if(i_studytime.text.toString() == "00 : 00 : 00") {
-                Toast.makeText(context?.applicationContext, "시간을 측정해주십시오", Toast.LENGTH_SHORT).show()
+            if (subjectName.text.toString() == "") {
+                Toast.makeText(
+                    context?.applicationContext,
+                    "과목 명을 등록하고 시간을 측정해주십시오",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (i_studytime.text.toString() == "00 : 00 : 00") {
+                Toast.makeText(context?.applicationContext, "시간을 측정해주십시오", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 // db에 스톱워치 데이터(과목명, 공부 시간) 저장
                 sqlDB = dbManager.writableDatabase
                 sqlDB.execSQL(
                     "INSERT INTO stopwatchTBL VALUES ('" + subjectName.text.toString()
-                            + "', '"+i_studytime.text.toString()+"', '0');"
+                            + "', '" + i_studytime.text.toString() + "', '0');"
                 )
                 sqlDB.close()
 
@@ -117,7 +121,7 @@ class StopWatch : Fragment() {
         playbtn.setImageResource(R.drawable.ic_noun_pause_2494384)
         // 과목명 반영
         study_subject.text = subjectName.text.toString()
-        // 타이머 작동
+        // 타이머(시,분,초) 작동
         timerTask = timer(period = 10) {
             time++
             hour = (time / 360000) % 24

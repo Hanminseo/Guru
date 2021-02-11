@@ -123,6 +123,7 @@ class Frag04 : Fragment() {
         }
         return view
     }
+
     //frag에서 뒤로가기 버튼 누르면 메인(Frag01)으로 이동
     private lateinit var callback: OnBackPressedCallback
 

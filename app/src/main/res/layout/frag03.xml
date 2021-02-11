@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Frag03"
-    android:backgroundTint="@color/white_num1">
+    android:backgroundTint="@color/white_num1"
+    tools:context=".Frag03">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,93 +27,93 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="108dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="36dp"
                 android:contentDescription="@string/logo"
-                android:layout_gravity="center"
                 android:src="@drawable/logo2" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:text="대외활동 사이트"
                 android:textColor="@color/brown_num2"
                 android:textSize="21dp"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/allcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:contentDescription="@string/allcontest"
-                android:scaleType="fitCenter"
-                android:src="@drawable/allocontests"
-                android:layout_marginBottom="40dp"
                 android:padding="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/allocontests" />
 
             <ImageButton
                 android:id="@+id/linkareer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:backgroundTint="#00FFFFFF"
-                android:contentDescription="@string/linkareer"
-                android:scaleType="fitCenter"
-                android:src="@drawable/linkareer"
-                android:padding="0dp"
                 android:layout_marginBottom="40dp"
                 android:layout_weight="1"
-                android:layout_gravity="center"/>
+                android:backgroundTint="#00FFFFFF"
+                android:contentDescription="@string/linkareer"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/linkareer" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/wevity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
+                android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:contentDescription="@string/wevity"
-                android:scaleType="fitCenter"
-                android:src="@drawable/wevity"
                 android:padding="0dp"
-                android:layout_weight="1"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/wevity" />
 
             <ImageButton
                 android:id="@+id/specup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
+                android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:contentDescription="@string/specup"
-                android:scaleType="fitCenter"
-                android:src="@drawable/spaceup"
                 android:padding="0dp"
-                android:layout_weight="1"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/spaceup" />
 
         </LinearLayout>
     </LinearLayout>

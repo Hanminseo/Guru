@@ -16,6 +16,7 @@ class DBManager(
         db!!.execSQL("CREATE TABLE calTBL (date text, content text, sign text);") // itemTBL 테이블 생성
         db!!.execSQL("CREATE TABLE noticeTBL ( notice text);") // noticeTBL 테이블 생성
     }
+
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
     }
 }

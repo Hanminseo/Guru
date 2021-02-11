@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +19,6 @@
             android:orientation="vertical">
 
             <!--과목-->
-
             <EditText
                 android:id="@+id/subjectName"
                 android:layout_width="250dp"
@@ -38,7 +36,6 @@
                 android:textStyle="bold"></EditText>
 
             <!--시,분-->
-
             <!--버튼-->
 
             <LinearLayout
@@ -83,12 +80,13 @@
                     android:layout_marginTop="30dp"
                     android:textSize="20sp"
                     android:textStyle="bold"></TextView>
+
                 <View
                     android:layout_width="370dp"
                     android:layout_height="1dp"
-                    android:layout_margin="5dp"
                     android:layout_gravity="center"
-                    android:background="#5C997E75"/>
+                    android:layout_margin="5dp"
+                    android:background="#5C997E75" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -158,6 +156,5 @@
 
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 </FrameLayout>

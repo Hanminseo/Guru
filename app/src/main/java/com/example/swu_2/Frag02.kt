@@ -181,7 +181,7 @@ class Frag02 : Fragment() {
             var total = (tHour * 3600 + tMin * 60 + tSec).toDouble()
             var target = (targetTime.text.substring(0, 2).toDouble() * 3600
                     + targetTime.text.substring(5, 7).toDouble() * 60).toDouble()
-            try{
+            try {
                 var prog = (total / target) * 100
                 var percent = prog.toInt()
 
@@ -191,9 +191,9 @@ class Frag02 : Fragment() {
                     percent = 100
                 }
                 pgbarTv.text = (percent).toString() + "%"
-            } catch (e: ArithmeticException){
+            } catch (e: ArithmeticException) {
                 // 퍼센테이지 분모(target)에 0이 들어오는 경우 오류 메세지 print
-                println("error: "+ e.message)
+                println("error: " + e.message)
             }
         } else {
             pgbar.setProgress(0)

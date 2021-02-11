@@ -34,7 +34,8 @@ class Password : AppCompatActivity() {
                             finish()
                         } else {
                             //인증실패시 오류메세지
-                            Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
             }

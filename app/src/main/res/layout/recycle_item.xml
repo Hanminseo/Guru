@@ -54,11 +54,11 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:mipmap/sym_def_app_icon"
-        android:paddingTop="10dp"
         app:tint="@color/brown_num2" />
 
     <androidx.constraintlayout.widget.Guideline
