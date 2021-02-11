@@ -21,35 +21,11 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
-    CircleProgressBar.ProgressFormatter, NavigationView.OnNavigationItemSelectedListener {
-
-
-    // DB에서 리스트 정보 로드하는 변수
-    lateinit var dbManager: DBManager
-    lateinit var sqlDB: SQLiteDatabase
-    lateinit var getItemString: String
-    lateinit var getCheckedItem: String
-    lateinit var checkedItems: SparseBooleanArray
+    NavigationView.OnNavigationItemSelectedListener {
 
     //변수
-    lateinit var userID: TextView
-    lateinit var userIDcheck: TextView
-    lateinit var userPage: ImageButton
-    lateinit var myCalendar: CalendarView
-    lateinit var listEdit: ImageButton
-    lateinit var todoListView: ListView
-    lateinit var adapter: ArrayAdapter<String>
-    lateinit var listItem: ArrayList<String>
     lateinit var layout_drawer : DrawerLayout
     lateinit var naviView : NavigationView
-    lateinit var mAuth: FirebaseAuth
-
-
-    // 원형 프로그레스 바 설정 변수
-    private val DEFAULT_PATTERN = "%d%%"
-    lateinit var circleProgressBar: CircleProgressBar
-    var count: Int = 0
-
 
     lateinit var fragmentManager: FragmentManager
     lateinit var fragmentTransaction: FragmentTransaction
@@ -64,28 +40,36 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         naviView = findViewById(R.id.naviView)
         layout_drawer = findViewById(R.id.layout_drawer)
 
+        // Frag01로 부터 flag를 전달받음
         var intent = intent
         var flag = intent.getIntExtra("flag", 0)
+        // 받은 값이 0이 아닌 값이라면 옆 서랍 메뉴가 작동하도록 구현
         if(flag != 0){
             layout_drawer.openDrawer(GravityCompat.START)
         }
+
+        // 처음 화면은 Frag01
         replaceFragment(Frag01())
         naviView.setNavigationItemSelectedListener(this)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
 
     }
 
+    // 하단 네비게이션 메뉴 클릭시 화면을 변경하도록 하는 리스너
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
+                // 디폴트 메인홈 메뉴
                 replaceFragment(Frag01())
                 return true
             }
             R.id.nav_timer -> {
+                // 타이머 메뉴
                 replaceFragment(Frag02())
                 return true
             }
             R.id.nav_web -> {
+                // 웹사이트 메뉴
                 replaceFragment(Frag03())
                 return true
             }
@@ -132,14 +116,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return false
     }
 
+    // fragment에서 다른 fragment로 화면을 전환하기 위한 메소드
     public fun replaceFragment(fragment: Fragment) {
         fragmentManager = getSupportFragmentManager()
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_container, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
+    // 뒤로 가기
     override fun onBackPressed() {
-
         if (layout_drawer.isDrawerOpen(GravityCompat.START)){
             layout_drawer.closeDrawers()
         }else{
@@ -147,10 +132,4 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
     }
 
-    override fun format(progress: Int, max: Int): CharSequence? {
-        return String.format(
-            DEFAULT_PATTERN,
-            (progress.toFloat() / max.toFloat() * 100).toInt()
-        )
-    }
 }

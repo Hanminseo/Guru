@@ -97,24 +97,24 @@ class Gonggi : AppCompatActivity() {
                     //공지 작성자와 내용 같이 출력
                     notice_r.setText(group_m?.storeName+ " : " + group_m?.storeContent)
 
-                    // 리스트에 추가
+                    // noticeTBL에 공지내용 추가
                     sqlDB = dbManager.writableDatabase
                     if(group_m?.storeContent.toString() != "") {
                         sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('"+notice_r.text.toString()+"');")
                     }
-                    println("여ㅕ기여"+group_m?.storeName.toString()+group_m?.storeContent.toString())
                     sqlDB.close()
                 }
             }
         }
 
+        // 버튼 클릭시 NoticeBoard로 이동
         noticeBtn.setOnClickListener {
             var intent = Intent(this, NoticeBoard::class.java)
             startActivity(intent)
         }
 
+        //버튼 클릭시 메인홈으로 이동
         gonggi_home.setOnClickListener{
-
             startActivity(Intent(this, MainActivity::class.java))
             finish()
 

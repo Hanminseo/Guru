@@ -1,19 +1,14 @@
 package com.example.swu_2
 
-import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
@@ -21,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class Frag02 : Fragment() {
@@ -68,9 +62,9 @@ class Frag02 : Fragment() {
         pgbarTv = view.findViewById(R.id.pgbarTv)
         datestring = view.findViewById(R.id.dateTv)
 
-        var timeList = ArrayList<Time>()
-
         dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
+
+        var timeList = ArrayList<Time>()
 
         // 현재 날짜 로드
         var now = LocalDate.now()
@@ -101,6 +95,7 @@ class Frag02 : Fragment() {
                 tMin += Integer.parseInt(getTimeString.substring(5, 7))
                 tSec += Integer.parseInt(getTimeString.substring(10, 12))
             }
+            // 프로그레스바 다시 설정
             onSettingProgress()
         }
         cursor.close()
@@ -124,7 +119,8 @@ class Frag02 : Fragment() {
                 Toast.makeText(context?.applicationContext, "목표 시간을 설정하세요", Toast.LENGTH_SHORT)
                     .show()
             } else {
-                (activity as MainActivity).replaceFragment(StopWatch2())
+                // 목표 시간이 설정되어있으면 Stopwatch로 이동
+                (activity as MainActivity).replaceFragment(StopWatch())
             }
         }
 
@@ -140,7 +136,7 @@ class Frag02 : Fragment() {
                 sqlDB.close()
                 onSettingProgress()
             }
-
+            // 스피너가 담긴 다이얼로그
             val dialog = TimePickerDialog(
                 activity,
                 android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
@@ -149,19 +145,19 @@ class Frag02 : Fragment() {
                 0,
                 true
             )
-
             dialog.setTitle(" 목표 시간 설정하기 ")
             dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.show()
         }
 
+        // 화면을 새로고침하기 위한 버튼 리스너
         reloadBtn.setOnClickListener {
             (activity as MainActivity).replaceFragment(Frag02())
         }
         return view
     }
 
-    //frag에서 뒤로가기 버튼 누르면 메인(Frag01)으로 이동
+    //frag02에서 뒤로가기 버튼 누르면 메인(Frag01)으로 이동
     private lateinit var callback: OnBackPressedCallback
 
     override fun onAttach(context: Context) {
@@ -181,13 +177,11 @@ class Frag02 : Fragment() {
 
     // 목표 시간 대비 공부 시간 프로그레스 바 설정
     private fun onSettingProgress() {
-
         if (targetTime.text != "") {
             var total = (tHour * 3600 + tMin * 60 + tSec).toDouble()
             var target = (targetTime.text.substring(0, 2).toDouble() * 3600
                     + targetTime.text.substring(5, 7).toDouble() * 60).toDouble()
-
-            if (target != 0.0) {
+            try{
                 var prog = (total / target) * 100
                 var percent = prog.toInt()
 
@@ -197,6 +191,9 @@ class Frag02 : Fragment() {
                     percent = 100
                 }
                 pgbarTv.text = (percent).toString() + "%"
+            } catch (e: ArithmeticException){
+                // 퍼센테이지 분모(target)에 0이 들어오는 경우 오류 메세지 print
+                println("error: "+ e.message)
             }
         } else {
             pgbar.setProgress(0)

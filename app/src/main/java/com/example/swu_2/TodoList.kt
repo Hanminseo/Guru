@@ -1,9 +1,7 @@
 package com.example.swu_2
 
-import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 
-class TodoList2 : Fragment()  {
+class TodoList : Fragment()  {
 
     //변수
     lateinit var listPlus: ImageButton

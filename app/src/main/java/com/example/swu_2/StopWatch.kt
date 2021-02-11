@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import java.util.*
 import kotlin.concurrent.timer
 
-class StopWatch2 : Fragment() {
+class StopWatch : Fragment() {
     //변수
     var time = 0
     var timerTask: Timer? = null
@@ -51,7 +51,7 @@ class StopWatch2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // activity_stop_watch2 xml로 화면 구성
-        val view: View = inflater.inflate(R.layout.activity_stop_watch2, container, false)
+        val view: View = inflater.inflate(R.layout.activity_stop_watch, container, false)
 
         playbtn = view.findViewById(R.id.playbtn)
         stopwatch_time = view.findViewById(R.id.stopwatch_time)
@@ -108,21 +108,22 @@ class StopWatch2 : Fragment() {
 
     //시작 버튼 눌렀을때
     private fun start() {
-        time = 59000
+        // 만약 과목명이 입력되지 않은 경우 토스트 출력 후 return
         if (subjectName.text.toString() == "") {
             Toast.makeText(context?.applicationContext, "과목명을 입력해주세요", Toast.LENGTH_SHORT).show()
             return
         }
+        // 버튼 이미지 변경
         playbtn.setImageResource(R.drawable.ic_noun_pause_2494384)
+        // 과목명 반영
         study_subject.text = subjectName.text.toString()
+        // 타이머 작동
         timerTask = timer(period = 10) {
             time++
-
             hour = (time / 360000) % 24
             min = time / 6000 % 60
             sec = time / 100 % 60
             watch = String.format("%02d : %02d : %02d", hour, min, sec)
-
             activity?.runOnUiThread {
                 stopwatch_time.text = "$watch"
             }
@@ -133,7 +134,7 @@ class StopWatch2 : Fragment() {
     private fun pause() {
         playbtn.setImageResource(R.drawable.ic_noun_play_943866)
         timerTask?.cancel()
-
+        // 공부시간 반영
         i_studytime.text = "${watch}"
     }
 }

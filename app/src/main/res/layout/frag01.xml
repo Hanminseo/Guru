@@ -1,235 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frag01">
 
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/layout_drawer"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_num1"
-        android:orientation="vertical">
+        tools:context=".MainActivity">
 
-        <RelativeLayout
+        <!-- 프레임-->
+
+        <FrameLayout
+            android:id="@+id/frame_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:layout_height="match_parent">
 
-           <!-- 프레임-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/frame_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <!-- 상단바 메뉴 -->
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageButton
+                        android:id="@+id/userPage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:adjustViewBounds="true"
+                        android:backgroundTint="@color/white"
+                        android:padding="0dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_noun_person_2024959"
+                        android:tint="@color/brown_num1"></ImageButton>
+
+                    <TextView
+                        android:id="@+id/userID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="3dp" />
+
+                    <TextView
+                        android:id="@+id/userIDcheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="3dp"
+                        android:text="님입니다."
+                        android:textColor="#000000" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"></View>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <!-- 상단바 메뉴 -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:paddingLeft="10dp"
+                        android:src="@drawable/ic_noun_speaker_508412"
+                        app:tint="@color/pink_num2" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
-
-
-                        <ImageButton
-                            android:id="@+id/userPage"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:adjustViewBounds="true"
-                            android:backgroundTint="@color/white"
-                            android:padding="0dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_noun_person_2024959"
-                            android:tint="@color/brown_num1"></ImageButton>
-
-                        <TextView
-                            android:id="@+id/userID"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"/>
-
-                        <TextView
-                            android:id="@+id/userIDcheck"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="님입니다."
-                            android:textColor="#000000"
-                            android:layout_marginBottom="3dp"/>
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"></View>
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/noticeview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_noun_speaker_508412"
-                            app:tint="@color/pink_num2"
-                            android:paddingLeft="10dp"
-                            android:layout_marginLeft="5dp"/>
+                        android:layout_marginRight="13dp"
+                        android:background="@drawable/round"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:padding="5dp"
+                        android:paddingLeft="20dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@color/brown_num2"
+                        android:textSize="18dp"
+                        android:textStyle="bold"></TextView>
 
-                        <TextView
-                            android:id="@+id/noticeview"
+                </LinearLayout>
+
+                <!--캘린더-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
+
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        android:id="@+id/myCalendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        app:mcv_selectionColor="@color/brown_num1"
+                        app:mcv_showOtherDates="none"
+                        app:mcv_tileHeight="40dp"
+                        app:mcv_tileSize="match_parent"
+                        app:mcv_tileWidth="match_parent"></com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!-- 프로그레스바-->
+                    <com.ramijemli.percentagechartview.PercentageChartView
+                        android:id="@+id/cpb_circlebar"
+                        android:layout_width="135dp"
+                        android:layout_height="135dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:pcv_animDuration="800"
+                        app:pcv_animInterpolator="anticipate_overshoot"
+                        app:pcv_backgroundBarColor="#25997E75"
+                        app:pcv_mode="ring"
+                        app:pcv_orientation="counter_clockwise"
+                        app:pcv_progress="10"
+                        app:pcv_progressColor="#FFBEC7"
+                        app:pcv_startAngle="90"
+                        app:pcv_textColor="@color/brown_num2"
+                        app:pcv_textShadowColor="@color/black"
+                        app:pcv_textShadowDistX="3.0"
+                        app:pcv_textSize="25sp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/round"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:padding="5dp"
-                            android:paddingLeft="20dp"
-                            android:singleLine="true"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/brown_num2"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:layout_marginRight="13dp"></TextView>
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="0dp"
+                                android:src="@drawable/ic_noun_pin_2496955"
+                                app:tint="@color/brown_num1" />
 
-                    <!--캘린더-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Today's Todolist"
+                                android:textColor="@color/brown_num1"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="280dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="5"
-                        android:orientation="vertical">
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"></View>
 
-                        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-                            android:id="@+id/myCalendar"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginTop="10dp"
-                            app:mcv_selectionColor="@color/brown_num1"
-                            app:mcv_showOtherDates="none"
-                            app:mcv_tileHeight="40dp"
-                            app:mcv_tileSize="match_parent"
-                            app:mcv_tileWidth="match_parent"></com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+                            <ImageButton
+                                android:id="@+id/listEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="10dp"
+                                android:adjustViewBounds="true"
+                                android:backgroundTint="@color/white"
+                                android:padding="0dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_noun_edit_3629720"
+                                android:tint="@color/pink_num1"></ImageButton>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="210dp"
-                        android:layout_weight="2"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
-
-                        <!-- 프로그레스바-->
-                        <com.ramijemli.percentagechartview.PercentageChartView
-                            android:id="@+id/cpb_circlebar"
-                            android:layout_width="135dp"
-                            android:layout_height="135dp"
-                            app:pcv_mode="ring"
-                            android:layout_gravity="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:pcv_orientation="counter_clockwise"
-                            app:pcv_textColor="@color/brown_num2"
-                            app:pcv_textSize="25sp"
-                            app:pcv_textShadowColor="@color/black"
-                            app:pcv_textShadowDistX="3.0"
-                            app:pcv_backgroundBarColor="#25997E75"
-                            app:pcv_progressColor="#FFBEC7"
-                            app:pcv_animDuration="800"
-                            app:pcv_animInterpolator="anticipate_overshoot"
-                            app:pcv_progress="10"
-                            app:pcv_startAngle="90"/>
-
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:paddingLeft="15dp">
+                            android:orientation="vertical">
 
-                            <LinearLayout
+                            <ListView
+                                android:id="@+id/todoListView"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:layout_height="match_parent" />
 
-                                <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_noun_pin_2496955"
-                                    app:tint="@color/brown_num1"
-                                    android:layout_marginRight="0dp"
-                                    android:layout_marginLeft="3dp"
-                                    android:layout_marginTop="3dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Today's Todolist"
-                                    android:textColor="@color/brown_num1"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="0dp"
-                                    android:layout_gravity="center"
-                                    android:layout_marginBottom="5dp"/>
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1"></View>
-
-                                <ImageButton
-                                    android:id="@+id/listEdit"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="right"
-                                    android:adjustViewBounds="true"
-                                    android:backgroundTint="@color/white"
-                                    android:padding="0dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/ic_noun_edit_3629720"
-                                    android:tint="@color/pink_num1"
-                                    android:layout_marginRight="10dp"></ImageButton>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <ListView
-                                    android:id="@+id/todoListView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
-
-                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </FrameLayout>
-        </RelativeLayout>
-    </androidx.drawerlayout.widget.DrawerLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
 
 </FrameLayout>

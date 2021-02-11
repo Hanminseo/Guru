@@ -17,8 +17,6 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.dinuscxj.progressbar.CircleProgressBar
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -51,7 +49,6 @@ class Frag01 : Fragment(){
     lateinit var noticeview : TextView
 
     // 원형 프로그레스 바 설정 변수
-    private val DEFAULT_PATTERN = "%d%%"
     lateinit var circleProgressBar : PercentageChartView
     var count: Int = 0
 
@@ -59,15 +56,13 @@ class Frag01 : Fragment(){
     var fireEmail : FirebaseAuth? = null
     var firestore : FirebaseFirestore? = null
 
-    lateinit var fragmentTransaction: FragmentTransaction
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
 
     ): View? {
-        // frag02 xml로 화면 구성
+        // frag01 xml로 화면 구성
         val view: View = inflater.inflate(R.layout.frag01, container, false)
 
 
@@ -78,8 +73,8 @@ class Frag01 : Fragment(){
         listEdit = view.findViewById(R.id.listEdit)
         todoListView = view.findViewById(R.id.todoListView)
         listItem = ArrayList<String>()
-        layout_drawer = view.findViewById(R.id.layout_drawer)
         dbManager = DBManager(context?.applicationContext, "itemDB", null, 1)
+        circleProgressBar = view.findViewById(R.id.cpb_circlebar)
 
         noticeview = view.findViewById(R.id.noticeview)
 
@@ -87,7 +82,7 @@ class Frag01 : Fragment(){
         noticeview.setSelected( true );
 
 
-        //캘린더 동그라미 표시
+        //캘린더 일정 동그라미 표시
         myCalendar.setSelectedDate(CalendarDay.today())
         onSettingCalDot()
 
@@ -98,9 +93,10 @@ class Frag01 : Fragment(){
             val day = date.day
             var strDay = String.format("%d.%02d.%02d", year, month+1, day)
             sqlDB = dbManager.writableDatabase
-            // 마지막 쿼리 '1'은 선택 여부를 의미/ '1'은 선택,'0'은 미선택(default)
+            // 마지막 쿼리 '1'은 날짜 선택 여부를 의미함('1'은 선택,'0'은 미선택(default))
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('" + strDay + "', 'null', '1');")
             sqlDB.close()
+            // Frag04로 이동
             (activity as MainActivity).replaceFragment(Frag04())
         }
 
@@ -122,7 +118,7 @@ class Frag01 : Fragment(){
             //member객체에서 그룹코드 받아오기
             val groupCode = member?.storeGroup
 
-
+            // 공지가 디비에 이미 담겨있는지 구별하기 위한 변수
             var flag2 = 0
 
             //그룹코드 통해서 문서 접근
@@ -145,12 +141,12 @@ class Frag01 : Fragment(){
                         var idx = getNotice.indexOf(":")
                         var getNotice_idx = getNotice.substring(idx+2)
 
-                        // 이미 디비에 담긴 공지는 제외하고 디비에 넣음
+                        // 이미 디비에 담긴 공지는 flag2를 1로 설정함
                         if (group_m?.storeContent.toString()== getNotice_idx) {
                             flag2 = 1
                         }
                     }
-                    // 디비안에 없는 공지라면 insert
+                    // 디비 안에 없는 공지라면 insert
                     if (flag2 == 0){
                         sqlDB.execSQL("INSERT INTO noticeTBL VALUES ('" + noticeDB + "');")
                     }
@@ -160,29 +156,27 @@ class Frag01 : Fragment(){
             }
         }
 
-
-        circleProgressBar = view.findViewById(R.id.cpb_circlebar);
-
         // 어댑터 연결
         adapter = ArrayAdapter<String>(
             requireContext(),
-            android.R.layout.simple_list_item_multiple_choice,
+            android.R.layout.simple_list_item_multiple_choice,     // 다중 선택 박스
             listItem
         )
         todoListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE)
         todoListView.setAdapter(adapter)
 
-        // db에서 리스트뷰 데이터 로드
+        // db에서 리스트뷰(투두리스트) 데이터 로드
         sqlDB = dbManager.readableDatabase
 
         var cursor: Cursor
         var cnt = 0
+        // todolistTBL에서 내용과 체크된 여부 모두 가지고 옴
         cursor = sqlDB.rawQuery("SELECT * FROM todolistTBL;", null)
         while (cursor.moveToNext()){
             getItemString = cursor.getString(0)
             getCheckedItem = cursor.getString(1)
             listItem.add(getItemString)
-            // db에서 체크 상태도 로드해서 반영
+            // db에서 체크 상태도 가져와서 반영
             if(getCheckedItem == "CHECKED"){
                 todoListView.setItemChecked(cnt, true)
             }
@@ -206,20 +200,22 @@ class Frag01 : Fragment(){
         listEdit.setOnClickListener {
 
             // TodoList 편집 액티비티로 전환
-            (activity as MainActivity).replaceFragment(TodoList2())
+            (activity as MainActivity).replaceFragment(TodoList())
         }
 
         //유저 페이지로 이동
+        // 하단 네비게이션 메뉴 fragment의 framelayout과 서랍 메뉴 drawerlayout의 동시 사용이 어려워
+        // 서랍 메뉴를 메인 액티비티에서 실행하도록 구현
         userPage.setOnClickListener {
-            var flag = 1
+            var flag1 = 1
             val intent = Intent(getActivity(), MainActivity::class.java)
-            intent.putExtra("flag", flag)
+            intent.putExtra("flag", flag1)
             startActivity(intent)
         }
         return view
     }
 
-
+    // 프로그레스바 퍼센테이지를 설정함
     private fun onSettingProgress() {
         var checkInt = 0.0
         checkedItems = todoListView.getCheckedItemPositions()
@@ -229,12 +225,13 @@ class Frag01 : Fragment(){
                 checkInt++
             }
         }
+        // 전체 항목 대비 체크된 항목의 비율을 퍼센테이지로 설정
         var percentInt = ((checkInt / count.toDouble())*100)
         circleProgressBar.setProgress(percentInt.toFloat(), true)
     }
 
+    // 투두리스트 항목들의 체크 여부 db에 저장함
     private fun onSettingTodolist() {
-        // db에 리스트뷰 체크된 항목 여부 저장하기
         checkedItems = todoListView.getCheckedItemPositions()
         for (i in count - 1 downTo 0) {
             sqlDB = dbManager.writableDatabase
@@ -248,8 +245,7 @@ class Frag01 : Fragment(){
             if (checkedItems.get(i)) {
                 sqlDB.execSQL(
                     "UPDATE todolistTBL SET checked='CHECKED' WHERE item ='" + listItem.get(
-                        i
-                    ) + "';"
+                        i) + "';"
                 )
             }
             sqlDB.close()
@@ -259,7 +255,7 @@ class Frag01 : Fragment(){
     private fun onSettingCalDot() {
         sqlDB = dbManager.readableDatabase
         var cursor: Cursor
-        // calTBL 테이블에 있는 모든 행의 date를 가져와서 달력에 점을 표시함
+        // calTBL 테이블에 있는 모든 date를 가져와서 달력에 점을 표시함 (등록된 날짜라면 일정표시하도록)
         cursor = sqlDB.rawQuery("SELECT date FROM calTBL;", null)
         while (cursor.moveToNext()) {
             val selDate = cursor.getString(0)
@@ -273,10 +269,9 @@ class Frag01 : Fragment(){
         }
         cursor.close()
         sqlDB.close()
-
     }
 
-    //frag에서 뒤로가기 버튼 누르면 로그인화면 으로 이동
+    //frag01에서 뒤로가기 버튼 누르면 frag01로 이동
     private lateinit var callback: OnBackPressedCallback
 
     override fun onAttach(context: Context) {
@@ -284,8 +279,6 @@ class Frag01 : Fragment(){
         callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 (activity as MainActivity).replaceFragment(Frag01())
-                //var intent = Intent(context?.applicationContext, MainActivity::class.java)
-                //startActivity(intent)
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)

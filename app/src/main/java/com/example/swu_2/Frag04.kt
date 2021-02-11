@@ -3,17 +3,13 @@ package com.example.swu_2
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class Frag04 : Fragment() {
 
@@ -64,12 +60,13 @@ class Frag04 : Fragment() {
         sqlDB = dbManager.readableDatabase
 
         var cursor: Cursor
-        // sign이 1인 행의 날짜를 가져옴
+        // calTBL에서 sign이 1인 행의 날짜를 가져옴
         cursor = sqlDB.rawQuery("SELECT date FROM calTBL WHERE sign='1';", null)
         while (cursor.moveToNext()) {
             getDate = cursor.getString(0)
             titleTv.text = "${getDate} 일정"
         }
+        // calTBL에서 sign이 1인 행을 삭제함
         sqlDB.execSQL("DELETE FROM calTBL WHERE sign='1';")
 
         // 가져온 날짜를 가진 행의 content를 가져옴
@@ -77,6 +74,7 @@ class Frag04 : Fragment() {
         while (cursor.moveToNext()) {
             getContent = cursor.getString(0)
             if (getContent != "null") {
+                // 내용이 있다면 리스트에 추가
                 listItem.add(getContent)
             }
         }
@@ -91,7 +89,6 @@ class Frag04 : Fragment() {
 
             // db에 항목 저장
             sqlDB = dbManager.writableDatabase
-
             sqlDB.execSQL("INSERT INTO calTBL VALUES ('${getDate}', '${edtlist}', '0');")
             sqlDB.close()
 

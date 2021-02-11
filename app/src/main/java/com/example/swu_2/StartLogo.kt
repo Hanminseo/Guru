@@ -19,7 +19,7 @@ class StartLogo : AppCompatActivity() {
         //앱 시작 시 처음으로 보이고 넘어가도록 설정
         Handler().postDelayed({
 
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
 
             finish()
         }, SPLASH_TIME_OUT)
